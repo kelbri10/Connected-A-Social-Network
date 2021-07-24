@@ -1,0 +1,23 @@
+{
+  "name": "connected-a-social-network",
+  "version": "1.0.0",
+  "description": "social networking app to connect friends and family",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelbri10/Connected-A-Social-Network.git"
+  },
+  "keywords": [
+    "social",
+    "network"
+  ],
+  "author": "Kelsey Hughes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kelbri10/Connected-A-Social-Network/issues"
+  },
+  "homepage": "https://github.com/kelbri10/Connected-A-Social-Network#readme"
+}
