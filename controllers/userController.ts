@@ -1,4 +1,3 @@
-//create new user 
+//create new user profile
 
-//get user that already exists in the network 
-
+//get user profile
