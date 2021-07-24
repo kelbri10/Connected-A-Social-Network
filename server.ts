@@ -2,7 +2,7 @@ const express = require('express');
 const app = express(); 
 const PORT: string | number = process.env.PORT || 3000; 
 
-app.get('/', (req: Request, res: Response) => { 
+app.get('/', (req, res) => { 
     res.send('Express server is live'); 
 })
 
