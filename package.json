@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kelbri10/Connected-A-Social-Network/issues"
   },
-  "homepage": "https://github.com/kelbri10/Connected-A-Social-Network#readme"
+  "homepage": "https://github.com/kelbri10/Connected-A-Social-Network#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
