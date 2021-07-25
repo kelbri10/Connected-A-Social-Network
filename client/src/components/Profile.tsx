@@ -9,7 +9,15 @@ const DisplayProfile: FC = () => {
 
     return (
         <div style={{ width: '100%'}}>
-            <h1>{user} profile</h1>
+            <h1>{user}'s profile</h1>
+
+            <div className='profile-information'>
+                <p>Kelsey</p>
+                <p>@kelseyhugs</p>
+                <p>Baltimore, MD</p>
+            </div>
+
+            {/* insert table here to display connections, albums, home page*/}
 
             <Button>Update Profile</Button>
             <Button>Home</Button>
