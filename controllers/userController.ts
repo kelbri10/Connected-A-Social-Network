@@ -1,5 +1,6 @@
 import {Request, Response, NextFunction} from "express";
 import UserModel from "../model/user.model";
+// import passport from '../config/passport';
 
 //create new user 
 //POST 
@@ -24,7 +25,15 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 //requires passport.authenticate
 //UserModel.find({}), UserModel.findById({})
 const findExistingUser = (req: Request, res: Response, next: NextFunction) => { 
+    let existingUser = req.body; 
 
+    UserModel.findOne({username: existingUser.username, password: existingUser.password})
+    .then(user => { 
+        console.log('user found'); 
+    })
+    .catch(err => { 
+        console.log('no user found, try again')
+    });
 }
 
 //update existing user 
