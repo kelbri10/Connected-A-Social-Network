@@ -78,6 +78,8 @@ const CreateAccount: FC = () => {
                 </div>
 
             </form>
+
+            <p>Already have an account? Log in </p>
         </div>
     )
 
