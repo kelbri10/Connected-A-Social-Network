@@ -8,6 +8,10 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true
     },
+    password: { 
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true 
@@ -21,7 +25,7 @@ const userSchema = new Schema<IUser>({
     posts: [{
         caption: String, 
         hashtags: String
-    }]
+    }], 
 })
 
 const UserModel = model<IUser>('User', userSchema);

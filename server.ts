@@ -1,6 +1,7 @@
 import express from 'express'; 
 import mongoose from 'mongoose'; 
 import htmlRouter from './routes/html-routes'; 
+import apiRouter from './routes/api-routes'; 
 
 require('dotenv').config();
 
@@ -29,6 +30,7 @@ mongoose.connect(
 )
 
 app.use('/', htmlRouter);
+app.use('/api', apiRouter); 
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 
