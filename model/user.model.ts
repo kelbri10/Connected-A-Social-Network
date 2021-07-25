@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'; 
 
 //interface 
-interface User {
+export interface User {
     username: string; 
     name: string; 
     email: string; 
