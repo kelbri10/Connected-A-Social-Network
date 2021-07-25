@@ -1,24 +1,28 @@
-import mongoose, { Schema } from 'mongoose'; 
+import { model, Schema } from 'mongoose'; 
+import IUser from './interfaces/user.interface';
 
-//interface 
-export interface User {
-    username: string; 
-    name: string; 
-    email: string; 
-    location: string; 
-    profilePicture?: File | string; 
-    connections?: number; 
-}
 
 //schema for db
-const userSchema = new Schema<User>({ 
-    username: String,
-    name: String,
-    email: String, 
-    location: String, 
-    profilePicture: String,
-    connections: Number
+const userSchema = new Schema<IUser>({ 
+    username: { 
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true 
+    },
+    email: {
+        type: String, 
+        required: true
+    },
+    location: String,
+    picture: String, 
+    posts: [{
+        caption: String, 
+        hashtags: String
+    }]
 })
 
-const UserProfile = mongoose.model('User', userSchema); 
-export default UserProfile; 
+const UserModel = model<IUser>('User', userSchema);
+export default UserModel; 

@@ -1,9 +1,8 @@
-import express from 'express'; j
-import addNewUser from '../controllers/profileController'; 
+// import express from 'express'; 
 
-const router = express.Router(); 
+// const router = express.Router(); 
 
-// POST method for adding new users to app
-router.post('/api/user', addNewUser); 
+// // // POST method for adding new users to app
+// // router.post('/api/user', addNewUser); 
 
-module.exports = router; 
+// // module.exports = router; 

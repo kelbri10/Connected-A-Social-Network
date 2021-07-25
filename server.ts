@@ -1,10 +1,10 @@
 import express from 'express'; 
 import mongoose from 'mongoose'; 
-
+import htmlRouter from './routes/html-routes'; 
 
 require('dotenv').config();
 
-const app = express(); 
+const app: express.Application = express(); 
 const PORT: string | number = process.env.PORT || 8000; 
 
 app.get('/', (req:express.Request , res: express.Response) => { 
@@ -15,10 +15,10 @@ app.get('/', (req:express.Request , res: express.Response) => {
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
 //app.use('/api', require('./controllers/userController')); 
-app.use(express.static('public'));
+app.use(express.static('./client/public'));
 
 mongoose.connect(
-    `mongodb+srv://admin:${process.env.DB_PASSWORD}@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority`, {
+    `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority`, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
     }, (err) =>{
@@ -28,7 +28,7 @@ mongoose.connect(
     }
 )
 
-app.use(require('./routes/api-routes'));
+app.use('/', htmlRouter);
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 

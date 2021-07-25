@@ -1,23 +1,13 @@
-import UserProfile, { User } from '../model/user.model'; 
+import UserModel from "../model/user.model";
 
-// POST /user - create a new user 
-const addNewUser = (req: Request, res: Response): Promise<void> => { 
-    const body: User = req.body; 
-    
-    const newUser: User = UserProfile.create({
-        username: body.username, 
-        name: body.name, 
-        email: body.email, 
-        location: body.location
-    });
+//create new user 
+//POST 
 
-    newUser.then(addedUser => { 
-        addedUser.save(); 
-    }).catch(err =>
-        console.log(err));
-}
-//api/user 
-// GET /user/:userID - gets specific user profile based on authetication
-//api/user/
+//read existing user 
+//GET 
 
-export default { addNewUser }; 
+//update existing user 
+//PUT 
+
+//delete existing user 
+//DELETE 
