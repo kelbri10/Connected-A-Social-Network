@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 //interface 
-interface TextPost { 
+interface Post { 
     post: File | string; 
     caption: string; 
     hashtags: string[]; 
@@ -9,12 +9,12 @@ interface TextPost {
 }
 
 //schema for db 
-const textPostSchema = new Schema<TextPost>({
+const textPostSchema = new Schema<Post>({
     post: String, 
     caption: String, 
     hashtags: String, 
     date: Date
 })
 
-const TextPost =  mongoose.model('TextPost', textPostSchema); 
-module.exports = TextPost; 
+const Post =  mongoose.model('Post', textPostSchema); 
+module.exports = Post; 

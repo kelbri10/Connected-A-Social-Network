@@ -25,7 +25,7 @@ mongoose.connect(
     }, (err) =>{
         if (err) throw err; 
 
-        console.log('connected to database youre gucci!');
+        console.log('youre connected to db!');
     }
 )
 
