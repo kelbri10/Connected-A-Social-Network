@@ -12,7 +12,7 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true
     },
-    name: {
+    displayName: {
         type: String,
         required: true 
     },

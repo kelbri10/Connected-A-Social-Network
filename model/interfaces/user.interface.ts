@@ -1,7 +1,7 @@
 //interface 
 export default interface IUser {
     username: string; 
-    name: string; 
+    displayName: string; 
     email: string; 
     location?: string; 
     picture?: string; 
