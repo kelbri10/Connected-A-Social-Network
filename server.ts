@@ -1,5 +1,5 @@
-import * as express from 'express';
-import * as  mongoose from 'mongoose';
+const express = require('express'); 
+const mongoose = require('mongoose'); 
 
 
 require('dotenv').config();
@@ -28,6 +28,7 @@ mongoose.connect(
     }
 )
 
+app.use(require('./routes/api-routes'));
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 

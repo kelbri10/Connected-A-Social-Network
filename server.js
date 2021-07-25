@@ -1,11 +1,10 @@
 "use strict";
-exports.__esModule = true;
-var express = require("express");
-var mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 require('dotenv').config();
-var app = express();
-var PORT = process.env.PORT || 8000;
-app.get('/', function (req, res) {
+const app = express();
+const PORT = process.env.PORT || 8000;
+app.get('/', (req, res) => {
     res.send('Express server is live');
 });
 //middleware 
@@ -13,14 +12,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use('/api', require('./controllers/userController')); 
 app.use(express.static('public'));
-mongoose.connect("mongodb+srv://admin:" + process.env.DB_PASSWORD + "@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority", {
+mongoose.connect(`mongodb+srv://admin:${process.env.DB_PASSWORD}@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}, function (err) {
+}, (err) => {
     if (err)
         throw err;
     console.log('connected to database youre gucci!');
 });
-app.listen(PORT, function () {
-    console.log("App is listening on PORT " + PORT);
+app.use(require('./routes/api-routes'));
+app.listen(PORT, () => {
+    console.log(`App is listening on PORT ${PORT}`);
 });

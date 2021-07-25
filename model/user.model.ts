@@ -21,4 +21,4 @@ const userSchema = new Schema<User>({
 })
 
 const UserProfile = mongoose.model('User', userSchema); 
-module.exports = UserProfile; 
+export default UserProfile; 
