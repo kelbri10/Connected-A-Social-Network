@@ -5,9 +5,9 @@ import * as  mongoose from 'mongoose';
 require('dotenv').config();
 
 const app = express(); 
-const PORT: string | number = process.env.PORT || 3000; 
+const PORT: string | number = process.env.PORT || 8000; 
 
-app.get('/', (req, res) => { 
+app.get('/', (req:express.Request , res: express.Response) => { 
     res.send('Express server is live'); 
 })
 
@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
 //app.use('/api', require('./controllers/userController')); 
+app.use(express.static('public'));
 
 mongoose.connect(
     `mongodb+srv://admin:${process.env.DB_PASSWORD}@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority`, {

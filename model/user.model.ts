@@ -20,4 +20,5 @@ const userSchema = new Schema<User>({
     connections: Number
 })
 
-const User = mongoose.model('User', userSchema); 
+const UserProfile = mongoose.model('User', userSchema); 
+module.exports = UserProfile; 

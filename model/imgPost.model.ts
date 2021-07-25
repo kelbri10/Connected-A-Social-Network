@@ -17,3 +17,4 @@ const imgSchema = new Schema<ImgPost>({
 }); 
 
 const ImgPost = mongoose.model('ImgPost', imgSchema); 
+module.exports = ImgPost; 

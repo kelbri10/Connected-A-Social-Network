@@ -4,7 +4,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 require('dotenv').config();
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 app.get('/', function (req, res) {
     res.send('Express server is live');
 });
@@ -12,6 +12,7 @@ app.get('/', function (req, res) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use('/api', require('./controllers/userController')); 
+app.use(express.static('public'));
 mongoose.connect("mongodb+srv://admin:" + process.env.DB_PASSWORD + "@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true

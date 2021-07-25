@@ -17,3 +17,4 @@ const textPostSchema = new Schema<TextPost>({
 })
 
 const TextPost =  mongoose.model('TextPost', textPostSchema); 
+module.exports = TextPost; 
