@@ -1,7 +1,8 @@
 import mongoose, { Schema } from 'mongoose'; 
 
 //interface 
-interface User { 
+interface User {
+    username: string; 
     name: string; 
     email: string; 
     location: string; 
@@ -11,7 +12,8 @@ interface User {
 
 //schema for db
 const userSchema = new Schema<User>({ 
-    name: String, 
+    username: String,
+    name: String,
     email: String, 
     location: String, 
     profilePicture: String,
