@@ -11,7 +11,7 @@ Before jumping into designing, I first brainstormed applications that were alrea
 - Ease of access 
 When brainstorming how to execute my own application, I wanted to keep these factors in mind. 
 
-## Design Process 
+## 2. Design Process 
 I created user profiles to align with design considerations I had for making a inclusive-focused app.
 
 ***How might someone who is completely new to the app interact with the different components?***
@@ -22,7 +22,7 @@ I created user profiles to align with design considerations I had for making a i
 ***How might someone who is a social media guru interact with different components?***
 - Amira is an 18 yo socialite who loves using social media to connect with her fans from other platforms.She likes to take stylistic pphotos of hersel. She also assists sponsors with ad content and strategy to boost sales and commissions.
 
-## Languages, Frameworks, and Libraries 
+## 3. Languages, Frameworks, and Libraries 
 - [Typescript](https://www.typescriptlang.org/)
 - [ReactJS](https://reactjs.org/docs/getting-started.html) 
 - [PassportJS](http://www.passportjs.org/) 
