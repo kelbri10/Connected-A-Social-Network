@@ -20,16 +20,25 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     
 }
 
-export default { createNewUser }; 
-//read existing user 
 //GET 
 //requires passport.authenticate
 //UserModel.find({}), UserModel.findById({})
+const findExistingUser = (req: Request, res: Response, next: NextFunction) => { 
+
+}
 
 //update existing user 
 //PUT 
 //UserModel.findOneAndUpdate({})
+const updateExistingUser = (req: Request, res: Response, next: NextFunction) => { 
+
+}
 
 //delete existing user 
 //DELETE 
 //UserModel.deleteOne({})
+const deleteExistingUser = (req: Request, res: Response, next: NextFunction) => { 
+
+}
+
+export default { createNewUser, findExistingUser, updateExistingUser, deleteExistingUser }; 

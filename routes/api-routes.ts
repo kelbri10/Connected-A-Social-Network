@@ -12,10 +12,13 @@ const apiRouter = express.Router();
 
 //POST: create new user 
 apiRouter.post('/newUser', userController.createNewUser); 
+
 //GET: read existing user 
+apiRouter.get('/current/user/:id', userController.findExistingUser); 
 
 //PUT: update existing user
+apiRouter.put('/update/user/:id', userController.updateExistingUser)
 
 //DELETE: delete existing user 
-
+apiRouter.delete('/delete/user/:id', userController.deleteExistingUser)
 export default apiRouter; 
