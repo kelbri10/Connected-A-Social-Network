@@ -53,7 +53,6 @@ const CreateAccount: FC = () => {
                         <TextField 
                         id='displayName' 
                         label='Display Name' 
-
                         required
                         />
                     </Box>
@@ -62,7 +61,6 @@ const CreateAccount: FC = () => {
                         <TextField 
                         id='email' 
                         label='Email' 
-
                         required
                         />
                     </Box>
@@ -80,8 +78,6 @@ const CreateAccount: FC = () => {
                 </form>
         
             </Box>
-
-            
 
             <p>Already have an account? Log in </p>
         </div>
