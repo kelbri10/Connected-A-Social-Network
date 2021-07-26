@@ -1,10 +1,11 @@
+import UserModel from '../model/user.model'; 
+
 const passport =  require('passport'); 
 const LocalStrategy = require('passport-local').Strategy;
-const userDB = require('../model/user.model')
 
 passport.use('local-user', new LocalStrategy(
     async (username: string, password:string, done: CallableFunction) => { 
-        const existingUser = await userDB.findOne({
+        const existingUser = await UserModel.findOne({
             username: username
         }, (err: Error, user: string) => { 
             if (err) {return done(err)}
@@ -13,9 +14,9 @@ passport.use('local-user', new LocalStrategy(
                 return done(null, false, { message: 'Incorrect username'})
             }
 
-            if (!existingUser.validPassword(password)) { 
-                return done(null, false, { message: 'Incorrect password'})
-            }
+            // if (!existingUser.validPassword(password)) { 
+            //     return done(null, false, { message: 'Incorrect password'})
+            // }
 
             return done(null, user); 
         })
