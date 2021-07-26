@@ -26,4 +26,5 @@ const ProfileTable: FC = () => {
     )
 } 
 
+export default ProfileTable; 
 

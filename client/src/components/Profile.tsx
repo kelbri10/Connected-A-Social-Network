@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core'; 
 import Box from '@material-ui/core/Box'; 
+import ProfileTable from './ProfileTable';
 
 
 const DisplayProfile: FC = () => { 
@@ -18,7 +19,8 @@ const DisplayProfile: FC = () => {
             </div>
 
             {/* insert table here to display connections, albums, home page*/}
-
+            <ProfileTable />
+            
             <Button>Update Profile</Button>
             <Button>Home</Button>
         </div>
