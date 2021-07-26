@@ -7,7 +7,7 @@ import DisplayProfile from './components/Profile';
 function App() {
   return (
     <div className="App">
-      <DisplayProfile />
+      <LoginForm />
     </div>
   );
 }

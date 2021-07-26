@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Button, TextField} from '@material-ui/core'; 
 import { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box'; 
+import axios from 'axios'; 
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -34,7 +35,18 @@ const LoginForm: FC = () => {
         //prevents user from resubmitting once button clicked
         event.preventDefault(); 
         //takes form data and sends to getEExistingUser to autheticate user 
-        console.log('button clicked'); 
+        console.log(existingUser); 
+
+        axios.get('/api/accounts/login', {
+            params: {
+                username: existingUser.username,
+                password: existingUser.password 
+            }
+        }).then((response) => { 
+            console.log(response); 
+        }).catch((err) => { 
+            console.log(err); 
+        });
     }
     
 
