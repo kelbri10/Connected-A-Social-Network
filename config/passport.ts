@@ -5,7 +5,7 @@ import passport from 'passport';
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use('local-user', new LocalStrategy(
-    async (username: string, password:string, done: CallableFunction) => { 
+    async (username: string, password: string, done: CallableFunction) => { 
         const existingUser = await UserModel.findOne({
             username: username
         }, (err: Error, existingUser: string) => { 

@@ -36,7 +36,7 @@ const LoginForm: FC = () => {
         event.preventDefault(); 
         //takes form data and sends to getEExistingUser to autheticate user 
         console.log(existingUser); 
-
+        //axios get request to express server
         axios.get('/api/accounts/login', {
             params: {
                 username: existingUser.username,

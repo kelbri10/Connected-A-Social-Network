@@ -13,20 +13,20 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true
     },
-    displayName: {
-        type: String,
-        required: true 
-    },
     email: {
         type: String, 
         required: true
     },
-    location: String,
-    picture: String, 
-    posts: [{
-        caption: String, 
-        hashtags: String
-    }], 
+    displayName: {
+        type: String,
+        required: true 
+    }
+    // location: String,
+    // picture: String, 
+    // posts: [{
+    //     caption: String, 
+    //     hashtags: String
+    // }], 
 })
 
 userSchema.plugin(passportLocalMongoose);

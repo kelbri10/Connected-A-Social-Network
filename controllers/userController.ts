@@ -9,18 +9,21 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 
     const newUserProfile = new UserModel(newUser); 
 
-    return newUserProfile.save()
-    .then(profile => { 
-        console.log('new user added'); 
-        return res.json({
-            username: newUser.username, 
-            email: newUser.email,
-            displayName: newUser.displayName
-        }); 
-    })
-    .catch (err => { 
-        console.log('unable to add new user'); 
-    })
+    newUserProfile.save((err) => { 
+        if(err) throw err; 
+    });
+    // return newUserProfile.save()
+    // .then(profile => { 
+    //     console.log('new user added'); 
+    //     return res.json({
+    //         username: newUser.username, 
+    //         email: newUser.email,
+    //         displayName: newUser.displayName
+    //     }); 
+    // })
+    // .catch (err => { 
+    //     console.log('unable to add new user'); 
+    // })
     
 }
 

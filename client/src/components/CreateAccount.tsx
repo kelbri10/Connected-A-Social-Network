@@ -17,14 +17,39 @@ const CreateAccount: FC = () => {
     const [newUser, setNewUser] = useState({
         username: '', 
         password: '', 
+        email: '',
         displayName: ''
     });
 
-    
 
-    // const handleCreateChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    
-    // }
+    //changes the value of userobj when user types in input box
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        const {name, value} = event.target; 
+
+        setNewUser(user => { 
+            return { 
+                ...user, [name]: value
+            }
+        })
+    }
+
+    //submits userobj through axios post request to api
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
+        event.preventDefault(); 
+        console.log(newUser); 
+
+        axios.post('/api/accounts/signup', {
+            username: newUser.username, 
+            password: newUser.password,
+            email: newUser.email, 
+            displayName: newUser.displayName
+        }).then((response) => { 
+            console.log(response)
+        }).catch((err) => { 
+            console.log(err); 
+        })
+    }
+
     const classes = useStyles(); 
 
     return ( 
@@ -38,28 +63,48 @@ const CreateAccount: FC = () => {
                     <Box p={0.5}>
                         <TextField 
                         id='username' 
+                        name='username'
                         label='Username'
+                        value={newUser.username}
                         required 
+                        onChange={handleChange}
                         />
                     </Box>
 
                     <Box p={0.5}>
                         <TextField 
                         id='password' 
+                        name='password'
                         label='Password' 
+                        value={newUser.password}
                         required
+                        onChange={handleChange}
+                        />
+                    </Box>
+
+                    <Box p={0.5}>
+                        <TextField 
+                        id='email' 
+                        name='email'
+                        label='Email'
+                        value={newUser.email}
+                        required 
+                        onChange={handleChange}
                         />
                     </Box>
 
                     <Box p={0.5}>
                         <TextField 
                         id='displayName' 
-                        label='Display Name' 
+                        name='displayName'
+                        label='Display Name'
+                        value={newUser.displayName} 
                         required
+                        onChange={handleChange}
                         />
                     </Box>
             
-                    <Button>Submit</Button>
+                    <Button onClick={handleSubmit}>Submit</Button>
             
 
                 </form>
