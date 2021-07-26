@@ -1,6 +1,7 @@
 import UserModel from '../model/user.model'; 
 
-const passport =  require('passport'); 
+import passport from 'passport'; 
+
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use('local-user', new LocalStrategy(
@@ -24,10 +25,12 @@ passport.use('local-user', new LocalStrategy(
 ))
 
 //serialize and deserialize boilerplate for passport 
-passport.serializeUser((existingUser: string, done:CallableFunction) => { 
+
+passport.serializeUser((existingUser: Express.User, done) => { 
     done(null, existingUser); 
 }); 
-passport.deserialize((existingUser: string, done:CallableFunction) => {
+
+passport.deserializeUser((existingUser: Express.User, done) => {
     done(null, existingUser);
 });
 
