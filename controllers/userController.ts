@@ -1,6 +1,5 @@
 import {Request, Response, NextFunction} from "express";
 import UserModel from "../model/user.model";
-// import passport from '../config/passport';
 
 //create new user 
 //POST 
@@ -13,7 +12,11 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     return newUserProfile.save()
     .then(profile => { 
         console.log('new user added'); 
-        return res.json(); 
+        return res.json({
+            username: newUser.username, 
+            email: newUser.email,
+            displayName: newUser.displayName
+        }); 
     })
     .catch (err => { 
         console.log('unable to add new user'); 
@@ -27,13 +30,10 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 const findExistingUser = (req: Request, res: Response, next: NextFunction) => { 
     let existingUser = req.body; 
 
-    UserModel.findOne({username: existingUser.username, password: existingUser.password})
-    .then(user => { 
-        console.log('user found'); 
+    res.json({ 
+        email: existingUser.email, 
+        username: existingUser.username 
     })
-    .catch(err => { 
-        console.log('no user found, try again')
-    });
 }
 
 //update existing user 

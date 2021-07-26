@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const userDB = require('../model/user.model')
 
 passport.use('local-user', new LocalStrategy(
-    async (username: string, password:string, done) => { 
+    async (username: string, password:string, done: CallableFunction) => { 
         const existingUser = await userDB.findOne({
             username: username
         }, (err: Error, user: string) => { 
