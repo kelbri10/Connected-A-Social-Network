@@ -2,7 +2,7 @@ import React,  { FC } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Button, TextField} from '@material-ui/core'; 
 import { useState, useEffect } from 'react';
-import axiosApi from '../utils/api';
+import Box from '@material-ui/core/Box'; 
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,12 +20,16 @@ const LoginForm: FC = () => {
     });  
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
-        setExistingUser(event.target.value); 
+        const {name, value} = event.target; 
+
+        setExistingUser(user => { 
+            return {
+                ...user, [name]: value
+            }
+        })
+
     }
-
-
-
-    }
+    
 
     const classes = useStyles(); 
     
@@ -37,6 +41,7 @@ const LoginForm: FC = () => {
                 <div>
                     <TextField 
                         id='username' 
+                        name='username'
                         label='Username' 
                         value={existingUser.username}
                         required
@@ -45,6 +50,7 @@ const LoginForm: FC = () => {
                 <div>
                     <TextField 
                         id='password' 
+                        name='password'
                         label='Password' 
                         value={existingUser.password}
                         required

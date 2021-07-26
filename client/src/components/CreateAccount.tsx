@@ -14,17 +14,13 @@ const useStyles = makeStyles((theme: Theme) =>
 ); 
 
 const CreateAccount: FC = () => { 
-    const [newUser, setNewUser] = React.useState({});
+    const [newUser, setNewUser] = useState({
+        username: '', 
+        password: '', 
+        displayName: ''
+    });
 
-    useEffect(() => { 
-        axios.post('/user')
-    })
-    //     username: '', 
-    //     password: '', 
-    //     displayName: '',
-    //     email: '',
-    //     location: '', 
-    // }); 
+    
 
     // const handleCreateChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
     
@@ -60,21 +56,6 @@ const CreateAccount: FC = () => {
                         id='displayName' 
                         label='Display Name' 
                         required
-                        />
-                    </Box>
-
-                    <Box p={0.5}> 
-                        <TextField 
-                        id='email' 
-                        label='Email' 
-                        required
-                        />
-                    </Box>
-
-                    <Box p={0.5}>
-                        <TextField 
-                        id='location' 
-                        label='Location' 
                         />
                     </Box>
             
