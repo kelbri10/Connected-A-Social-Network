@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import IProfile from "./interfaces/profile.interface";
 
 //schema for db 
-const profileSchema = new Schema<Profile>({
+const profileSchema = new Schema<IProfile>({
     username: String, 
     displayName: String, 
     posts: [{
