@@ -16,17 +16,7 @@ const userSchema = new Schema<IUser>({
     email: {
         type: String, 
         required: true
-    },
-    displayName: {
-        type: String,
-        required: true 
     }
-    // location: String,
-    // picture: String, 
-    // posts: [{
-    //     caption: String, 
-    //     hashtags: String
-    // }], 
 })
 
 userSchema.plugin(passportLocalMongoose);

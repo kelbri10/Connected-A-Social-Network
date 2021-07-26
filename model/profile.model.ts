@@ -3,8 +3,10 @@ import IProfile from "./interfaces/profile.interface";
 
 //schema for db 
 const profileSchema = new Schema<IProfile>({
-    username: String, 
+    username: {type: Schema.Types.ObjectId, ref: 'User'}, 
     displayName: String, 
+    location: String, 
+    bio: String,
     posts: [{
         caption: String, 
         hashtags: String

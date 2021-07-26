@@ -18,7 +18,6 @@ const CreateAccount: FC = () => {
         username: '', 
         password: '', 
         email: '',
-        displayName: ''
     });
 
 
@@ -42,7 +41,7 @@ const CreateAccount: FC = () => {
             username: newUser.username, 
             password: newUser.password,
             email: newUser.email, 
-            displayName: newUser.displayName
+            
         }).then((response) => { 
             console.log(response)
         }).catch((err) => { 
@@ -89,17 +88,6 @@ const CreateAccount: FC = () => {
                         label='Email'
                         value={newUser.email}
                         required 
-                        onChange={handleChange}
-                        />
-                    </Box>
-
-                    <Box p={0.5}>
-                        <TextField 
-                        id='displayName' 
-                        name='displayName'
-                        label='Display Name'
-                        value={newUser.displayName} 
-                        required
                         onChange={handleChange}
                         />
                     </Box>
