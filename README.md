@@ -26,11 +26,11 @@ I created user profiles to align with design considerations I had for making a i
 ## 3. Must-Haves 
 Requirements for this project include: 
 - [x] Use a modern JS Library/Framework
-- Allows user to interact with application in a minimum of 3 different ways *In progress*
+- [ ] Allows user to interact with application in a minimum of 3 different ways *In progress*
 - [x] Uses architectural pattern
-- Integration with a 3rd party RESTful API *In progress*
-- Uses at least 5 UI components from material-ui/@core *In progress*
-- Uses a reusable UI component that I created *In progress*
+- [ ] Integration with a 3rd party RESTful API *In progress*
+- [ ] Uses at least 5 UI components from material-ui/@core *In progress*
+- [ ] Uses a reusable UI component that I created *In progress*
 
 ## 4. Languages, Frameworks, and Libraries 
 - [Typescript](https://www.typescriptlang.org/)
