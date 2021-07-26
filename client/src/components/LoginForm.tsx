@@ -1,6 +1,8 @@
 import React,  { FC } from 'react'; 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Button, TextField} from '@material-ui/core'; 
+import { useState, useEffect } from 'react';
+import axiosApi from '../utils/api';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,15 +14,17 @@ const useStyles = makeStyles((theme: Theme) =>
 ); 
 
 const LoginForm: FC = () => {
-    const [username, setUsername] = React.useState(''); 
-    const [password, setPassword] = React.useState(''); 
+    const [existingUser, setExistingUser] = useState({
+        username: '', 
+        password: ''
+    });  
 
-    const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
-        setUsername(event.target.value); 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        setExistingUser(event.target.value); 
     }
 
-    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(event.target.value);
+
+
     }
 
     const classes = useStyles(); 
@@ -34,17 +38,17 @@ const LoginForm: FC = () => {
                     <TextField 
                         id='username' 
                         label='Username' 
-                        value={username}
+                        value={existingUser.username}
                         required
-                        onChange={handleUsernameChange}/>
+                        onChange={handleChange}/>
                 </div>
                 <div>
                     <TextField 
                         id='password' 
                         label='Password' 
-                        value={password}
+                        value={existingUser.password}
                         required
-                        onChange={handlePasswordChange}/>
+                        onChange={handleChange}/>
                 </div>
                 
                 <div>

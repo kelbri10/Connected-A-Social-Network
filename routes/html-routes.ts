@@ -8,12 +8,12 @@ htmlRouter.get('/', (req:express.Request , res: express.Response) => {
 })
 
 // /login
-htmlRouter.get('/login', (req: Request, res: Response) => { 
+htmlRouter.get('/accounts/login', (req: Request, res: Response) => { 
     res.send('welcome to login page');
 })
 
 // /createAccount
-htmlRouter.get('/createAccount', (req: Request, res: Response) => { 
+htmlRouter.get('/accounts/signup', (req: Request, res: Response) => { 
     res.send('create an account here')
 })
 

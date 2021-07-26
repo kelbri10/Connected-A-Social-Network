@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Button, TextField, Select} from "@material-ui/core";
 import Box from '@material-ui/core/Box'; 
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles ({
@@ -12,7 +14,11 @@ const useStyles = makeStyles((theme: Theme) =>
 ); 
 
 const CreateAccount: FC = () => { 
-    // const [userObj, setUserObj] = React.useState({
+    const [newUser, setNewUser] = React.useState({});
+
+    useEffect(() => { 
+        axios.post('/user')
+    })
     //     username: '', 
     //     password: '', 
     //     displayName: '',

@@ -5,10 +5,10 @@ import userController from '../controllers/userController';
 const apiRouter = express.Router(); 
 
 //POST: create new user 
-apiRouter.post('/user', userController.createNewUser); 
+apiRouter.post('/accounts/signup', userController.createNewUser); 
 
 //GET: read existing user 
-apiRouter.get('/login', passport.authenticate('local-user'), userController.findExistingUser); 
+apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.findExistingUser); 
 
 //PUT: update existing user
 apiRouter.put('/user/:id', userController.updateExistingUser)
