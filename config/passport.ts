@@ -23,4 +23,12 @@ passport.use('local-user', new LocalStrategy(
     }
 ))
 
+//serialize and deserialize boilerplate for passport 
+passport.serializeUser((existingUser: string, done:CallableFunction) => { 
+    done(null, existingUser); 
+}); 
+passport.deserialize((existingUser: string, done:CallableFunction) => {
+    done(null, existingUser);
+});
+
 export default passport; 
