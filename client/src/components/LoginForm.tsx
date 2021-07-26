@@ -29,6 +29,13 @@ const LoginForm: FC = () => {
         })
 
     }
+
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
+        //prevents user from resubmitting once button clicked
+        event.preventDefault(); 
+        //takes form data and sends to getEExistingUser to autheticate user 
+        console.log('button clicked'); 
+    }
     
 
     const classes = useStyles(); 
@@ -58,7 +65,7 @@ const LoginForm: FC = () => {
                 </div>
                 
                 <div>
-                    <Button> Submit </Button>
+                    <Button onClick={handleSubmit}> Submit </Button>
                 </div>
 
             </form >
