@@ -33,7 +33,7 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 const findExistingUser = (req: Request, res: Response, next: NextFunction) => { 
     let existingUser = req.body; 
 
-    res.json({ 
+    return res.json({ 
         email: existingUser.email, 
         username: existingUser.username 
     })

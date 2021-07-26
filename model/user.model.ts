@@ -17,7 +17,12 @@ const userSchema = new Schema<IUser>({
         type: String, 
         required: true
     },
-    profile: {type: Schema.Types.ObjectId, ref: 'Profile'}
+    bio: String, 
+    location: String, 
+    posts: [{ 
+        caption: String, 
+        hashtags: String
+    }]
 })
 
 userSchema.plugin(passportLocalMongoose);
