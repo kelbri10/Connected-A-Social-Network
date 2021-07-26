@@ -2,6 +2,11 @@ import express, {Request, Response} from 'express';
 const htmlRouter = express.Router(); 
 //html-routes 
 
+//live
+htmlRouter.get('/', (req:express.Request , res: express.Response) => { 
+    res.send('Express server is live'); 
+})
+
 // /login
 htmlRouter.get('/login', (req: Request, res: Response) => { 
     res.send('welcome to login page');

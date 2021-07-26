@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'; 
-import userController from '../controllers/userController'; 
 import passport from '../config/passport'; 
+import userController from '../controllers/userController'; 
 
 const apiRouter = express.Router(); 
 

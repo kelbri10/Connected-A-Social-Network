@@ -7,7 +7,7 @@ passport.use('local-user', new LocalStrategy(
     async (username: string, password:string, done: CallableFunction) => { 
         const existingUser = await UserModel.findOne({
             username: username
-        }, (err: Error, user: string) => { 
+        }, (err: Error, existingUser: string) => { 
             if (err) {return done(err)}
 
             if (!existingUser) { 
@@ -18,7 +18,7 @@ passport.use('local-user', new LocalStrategy(
             //     return done(null, false, { message: 'Incorrect password'})
             // }
 
-            return done(null, user); 
+            return done(null, existingUser); 
         })
     }
 ))
