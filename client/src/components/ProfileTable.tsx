@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 
-const createProfilePage = (albums: {count: number, categories: string[]}, connections: {count: number, users: string[]}, feed: {count: number, posts: string[]} ) => { 
-    return {albums, connections, feed}; 
+const createProfilePage = (albums: {count: number, categories: string[]}, connections: {count: number, users: string[]}) => { 
+    return {albums, connections} 
 }
 
 const row = createProfilePage(
     {count: 3, categories: ['style', 'makeup', 'nature']}, 
-    {count: 2, users: ['max', 'peyton']}, 
-    {count: 2, posts: ['text', 'picture']}); 
+    {count: 2, users: ['max', 'peyton']}); 
 
 const ProfileTable: FC = () => { 
     return( 
@@ -16,11 +15,26 @@ const ProfileTable: FC = () => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Albums</TableCell>
-                        <TableCell>Connections</TableCell>
-                        <TableCell>Feed</TableCell>
+                        <TableCell align='center'>Albums</TableCell>
+                        <TableCell align='center'>Connections</TableCell>
                     </TableRow>
                 </TableHead>
+
+                <TableBody>
+                    <TableRow>
+                        <TableCell align='center'>{row.albums.count}
+                            {row.albums.categories.map((item) => (
+                                <p>{item}</p>
+                            ))}
+                        </TableCell>
+                        <TableCell align='center'>{row.connections.count}
+                            {row.connections.users.map((item) => (
+                                <p>{item}</p>
+                            ))} 
+                         </TableCell>
+                    </TableRow>
+
+                </TableBody>
             </Table>
         </TableContainer>
     )
