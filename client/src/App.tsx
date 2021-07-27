@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import ProfileDetails from './components/ProfileDetails';
 import AccountDetails from './components/AccountDetails';
 import UserProfile from './components/UserProfile'; 
+import HomeFeed from './components/HomeFeed';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/accounts/signup' component={AccountDetails} />
         <Route path='/profiles/update' component={ProfileDetails} />
         <Route path='/profile' component={UserProfile} />
+        <Route path='/home' component={HomeFeed} />
       </Switch>
     </div>
   );
