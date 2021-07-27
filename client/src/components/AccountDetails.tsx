@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Button, TextField, Select} from "@material-ui/core";
 import Box from '@material-ui/core/Box'; 
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'; 
 import axios from "axios";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -99,7 +100,7 @@ const AccountDetails : FC = () => {
         
             </Box>
 
-            <p>Already have an account? Log in </p>
+            <p>Already have an account? <Link to = '/'>Login!</Link></p>
         </div>
     )
 

@@ -11,6 +11,7 @@ const htmlRouter = express.Router();
 // /login
 htmlRouter.get('/', (req: Request, res: Response) => { 
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+
 })
 
 // /createAccount

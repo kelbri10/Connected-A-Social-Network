@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Button, TextField} from '@material-ui/core'; 
 import { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box'; 
+import { Link } from 'react-router-dom'; 
 import axios from 'axios'; 
 
 
@@ -82,7 +83,7 @@ const LoginForm: FC = () => {
 
             </form >
 
-            <p>Don't already have an account? Create one here!</p>
+            <p>Don't already have an account? Create one <Link to = '/accounts/signup'>here</Link>!</p>
         </div>
     )}
 
