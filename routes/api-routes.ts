@@ -12,7 +12,8 @@ apiRouter.post('/profile/signup', userController.createNewProfile);
 //GET: read existing user 
 apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.findExistingUser); 
 //GET: read existing user profile 
-apiRouter.get('/profile/', userController.getUserProfile); 
+apiRouter.get('/profile', userController.getUserProfile); 
+
 
 //PUT: update existing user
 apiRouter.put('/user/:id', userController.updateExistingUser)

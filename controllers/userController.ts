@@ -12,6 +12,11 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     newUser.save((err) => { 
         if(err) throw err; 
     });
+
+    const newProfile = new ProfileModel({username: newUser._id }); 
+    newProfile.save((err) => { 
+        if(err) throw err; 
+    })
     // return newUserProfile.save()
     // .then(profile => { 
     //     console.log('new user added'); 
@@ -50,7 +55,7 @@ const findExistingUser = (req: Request, res: Response, next: NextFunction) => {
 }
 //GET: 
 const getUserProfile = (req: Request, res: Response, next: NextFunction) => { 
-
+//take existing user and get profile by matching ids and return profile back to the frontend
 }
 
 //update existing user 

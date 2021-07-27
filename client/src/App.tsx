@@ -8,7 +8,7 @@ import AccountDetails from './components/AccountDetails';
 function App() {
   return (
     <div className="App">
-      <ProfileDetails />
+      <AccountDetails />
     </div>
   );
 }

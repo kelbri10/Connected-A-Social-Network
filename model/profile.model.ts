@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose'; 
 import IProfile from './interfaces/profile.interface'; 
-import UserModel from './user.model';
+
 
 
 //schema for profileDB
