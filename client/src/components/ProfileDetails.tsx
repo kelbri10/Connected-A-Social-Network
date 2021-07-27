@@ -5,6 +5,14 @@ import Box from '@material-ui/core/Box';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles ({
+        root: { 
+            margin: theme.spacing(6)
+        }
+    })
+); 
+
 const ProfileDetails: FC = () => { 
     const [newProfile, setNewProfile] = useState({
         displayName: '', 
@@ -22,11 +30,11 @@ const ProfileDetails: FC = () => {
         })
     }
 
-    const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => { 
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
         event.preventDefault(); 
         console.log(newProfile); 
 
-        axios.post('/api/profile/update', {
+        axios.post('/api/profile/signup', {
             displayName: newProfile.displayName, 
             location: newProfile.location,
             bio: newProfile.bio
@@ -37,6 +45,8 @@ const ProfileDetails: FC = () => {
             console.log(err); 
         })
     }
+
+    const classes = useStyles(); 
 
     return (
         <div>
@@ -49,7 +59,7 @@ const ProfileDetails: FC = () => {
                         id='displayName' 
                         name='displayName'
                         label='Display Name'
-                        value={newUser.displayName}
+                        value={newProfile.displayName}
                         required 
                         onChange={handleChange}
                         />
@@ -60,7 +70,7 @@ const ProfileDetails: FC = () => {
                         id='bio' 
                         name='bio'
                         label='Bio' 
-                        value={newUser.bio}
+                        value={newProfile.bio}
                         required
                         onChange={handleChange}
                         />
@@ -71,7 +81,7 @@ const ProfileDetails: FC = () => {
                         id='location' 
                         name='location'
                         label='Location'
-                        value={newUser.location}
+                        value={newProfile.location}
                         required 
                         onChange={handleChange}
                         />

@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from "express";
 import UserModel from "../model/user.model";
-
+import ProfileModel from "../model/profile.model";
 //create new user 
 //POST 
 //UserModel.create({})
@@ -11,12 +11,6 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 
     newUser.save((err) => { 
         if(err) throw err; 
-
-        const newProfile = new ProfileModel({}); 
-
-        newProfile.save((err) => { 
-            if (err) throw err; 
-        })
     });
     // return newUserProfile.save()
     // .then(profile => { 
@@ -33,15 +27,15 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     
 }
 
-// const createNewProfile = () => { 
-//     let newProfileObj = req.body; 
+const createNewProfile = (req: Request, res: Response, next: NextFunction) => { 
+    let newProfileObj = req.body; 
 
-//     const newProfile = new ProfileModel(newProfileObj); 
+    const newProfile = new ProfileModel(newProfileObj); 
 
-//     newProfile.save((err) => { 
-//         if(err) throw err; 
-//     })
-// }
+    newProfile.save((err) => { 
+        if(err) throw err; 
+    })
+}
 
 //GET 
 //requires passport.authenticate
@@ -53,6 +47,10 @@ const findExistingUser = (req: Request, res: Response, next: NextFunction) => {
         email: existingUser.email, 
         username: existingUser.username 
     })
+}
+//GET: 
+const getUserProfile = (req: Request, res: Response, next: NextFunction) => { 
+
 }
 
 //update existing user 
@@ -69,4 +67,4 @@ const deleteExistingUser = (req: Request, res: Response, next: NextFunction) => 
 
 }
 
-export default { createNewUser, findExistingUser, updateExistingUser, deleteExistingUser }; 
+export default { createNewUser, findExistingUser, updateExistingUser, deleteExistingUser, createNewProfile, getUserProfile }; 

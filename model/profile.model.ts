@@ -5,7 +5,9 @@ import UserModel from './user.model';
 
 //schema for profileDB
 const profileSchema = new Schema<IProfile>({
-    username: {type: Schema.Types.ObjectId, ref: 'User'},
+    username: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User'},
     displayName: {
         type: String, 
         default: 'New user'
@@ -25,4 +27,4 @@ const profileSchema = new Schema<IProfile>({
 })
 
 const ProfileModel = model<IProfile>('Profile', profileSchema); 
-export default UserModel; 
+export default ProfileModel; 
