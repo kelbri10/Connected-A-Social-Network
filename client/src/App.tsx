@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import CreateAccount from './components/AccountDetails';
-import LoginForm from './components/LoginForm';
-import DisplayProfile from './components/UserProfile';
+import UserForm from './components/UserForm';
 
 function App() {
   return (
     <div className="App">
-      <CreateAccount />
+      <UserForm />
     </div>
   );
 }
