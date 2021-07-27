@@ -1,8 +1,8 @@
 import express from 'express'; 
 import mongoose from 'mongoose'; 
 
-import htmlRouter from './routes/html-routes'; 
-import apiRouter from './routes/api-routes'; 
+import router from './routes/html-routes'; 
+
 import path from 'path'; 
 
 import{initialize} from 'passport'; 
@@ -34,8 +34,7 @@ mongoose.connect(
 app.use(initialize()); 
 // app.use(passport.session()); 
 
-app.use('/', htmlRouter);
-app.use('/api', apiRouter); 
+app.use('/', router); 
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 

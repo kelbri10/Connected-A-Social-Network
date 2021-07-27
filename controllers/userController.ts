@@ -35,7 +35,7 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 //GET 
 //requires passport.authenticate
 //UserModel.find({}), UserModel.findById({})
-const getExistingUser = (req: Request, res: Response, next: NextFunction) => {  
+const loginUser = (req: Request, res: Response, next: NextFunction) => {  
 
     interface UserData { 
         email: string; 
@@ -102,4 +102,4 @@ const deleteExistingUser = (req: Request, res: Response, next: NextFunction) => 
 
 }
 
-export default { createNewUser, getExistingUser, updateExistingUser, deleteExistingUser, getUserProfile }; 
+export default { createNewUser, loginUser, updateExistingUser, deleteExistingUser, getUserProfile }; 
