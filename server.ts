@@ -15,6 +15,7 @@ const PORT: string | number = process.env.PORT || 8000;
 //expressjs middleware 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
+
 app.use(express.static('client/build'));
 
 //initializes the database 

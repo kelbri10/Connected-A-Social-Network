@@ -5,9 +5,6 @@ import IProfile from './interfaces/profile.interface';
 
 //schema for profileDB
 const profileSchema = new Schema<IProfile>({
-    username: {
-        type: Schema.Types.ObjectId, 
-        ref: 'User'},
     displayName: {
         type: String, 
         default: 'New user'

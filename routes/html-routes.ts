@@ -11,11 +11,13 @@ const htmlRouter = express.Router();
 
 // /login
 htmlRouter.get('/', (req: Request, res: Response) => { 
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 })
 
 
-if(isAuthenticated){ 
-    res.redirect('/')
-}
+// htmlRouter.get('/home', (req: Request, res: Response) => { 
+//     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+// })
+
+
 export default htmlRouter; 

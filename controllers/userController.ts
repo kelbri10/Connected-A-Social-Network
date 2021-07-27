@@ -13,10 +13,13 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
         if(err) throw err; 
     });
 
-    const newProfile = new ProfileModel({username: newUser._id }); 
+    const newProfile = new ProfileModel(); 
+
     newProfile.save((err) => { 
         if(err) throw err; 
     })
+
+    newUser.profile.push(newProfile); 
 }
 
 // const createNewProfile = (req: Request, res: Response, next: NextFunction) => { 
@@ -39,43 +42,50 @@ const getExistingUser = (req: Request, res: Response, next: NextFunction) => {
         username: string; 
         _id: string; 
     }
+    //defines the obj for profile param to expect 
+    interface UserProfile { 
+    displayName: string; 
+    bio: string; 
+    location: string; 
+    posts: string[];
+    }
 
     let existingUser = req.body;
 
-    UserModel.findOne({username: existingUser.username}, (err: Error, data: UserData) => { 
-        if (err){ 
-            throw err
-        } else {
-            return res.json({
-                username: data.username,
-                _id: data._id})
-        }
-    })
+    UserModel.findOne({username: existingUser.username})
+    .populate('profile')
+    .then((profile) =>{res.json(profile)})
+    .catch((err)=>{res.json(err)}); 
+
+    // UserModel.findOne({username: existingUser.username}, (err: Error
+        
+    //     , data: UserData) => { 
+    //     if (err){ 
+    //         throw err
+    //     } else {
+
+    //         let username_id = data._id; 
+            
+    //         ProfileModel.findOne({username: username_id}, (err: Error, profile: UserProfile) => { 
+    //             if (err) { 
+    //                 throw err
+    //             } else { 
+    //                 return res.json({
+    //                     username: existingUser.username, 
+    //                     displayName: profile.displayName, 
+    //                     bio: profile.bio, 
+    //                     location: profile.location
+    //                 })
+    //             }}
+    //         ) 
+    //     }
+    // })
 }
 
 //GET: 
 const getUserProfile = async (req: Request, res: Response, next: NextFunction) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
 
-    //defines the obj for profile param to expect 
-    interface UserProfile { 
-        displayName: string; 
-        bio: string; 
-        location: string; 
-        posts: string[];
-    }
-
-    ProfileModel.findOne({username: req.params.user_id}, (err: Error, profile: UserProfile) => { 
-        if (err) { 
-            throw err
-        } else { 
-            return res.json({
-                displayName: profile.displayName, 
-                bio: profile.bio, 
-                location: profile.location
-            })
-        }}
-    ) 
 }
 
 //update existing user 
