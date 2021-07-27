@@ -3,9 +3,10 @@ import mongoose from 'mongoose';
 
 import router from './routes/html-routes'; 
 
-import path from 'path'; 
-
 import{initialize} from 'passport'; 
+import cookieParser from 'cookie-parser'; 
+import session from 'express-session'; 
+import cors from 'cors'; 
 
 require('dotenv').config();
 
@@ -15,8 +16,19 @@ const PORT: string | number = process.env.PORT || 8000;
 //expressjs middleware 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
-
 app.use(express.static('client/build'));
+
+app.use(cors({
+    origin: 'http://localhost:3000' //where react app is located 
+})); 
+
+//additional middleware
+app.use(cookieParser()); 
+app.use(session({
+    secret: process.env.SECRET_SESSION, 
+    resave: true,
+
+    })); 
 
 //initializes the database 
 mongoose.connect(
