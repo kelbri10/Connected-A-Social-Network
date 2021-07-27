@@ -17,45 +17,63 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     newProfile.save((err) => { 
         if(err) throw err; 
     })
-    // return newUserProfile.save()
-    // .then(profile => { 
-    //     console.log('new user added'); 
-    //     return res.json({
-    //         username: newUser.username, 
-    //         email: newUser.email,
-    //         displayName: newUser.displayName
-    //     }); 
-    // })
-    // .catch (err => { 
-    //     console.log('unable to add new user'); 
-    // })
-    
 }
 
-const createNewProfile = (req: Request, res: Response, next: NextFunction) => { 
-    let newProfileObj = req.body; 
+// const createNewProfile = (req: Request, res: Response, next: NextFunction) => { 
+//     let newProfileObj = req.body; 
 
-    const newProfile = new ProfileModel(newProfileObj); 
+//     const newProfile = new ProfileModel(newProfileObj); 
 
-    newProfile.save((err) => { 
-        if(err) throw err; 
-    })
-}
+//     newProfile.save((err) => { 
+//         if(err) throw err; 
+//     })
+// }
 
 //GET 
 //requires passport.authenticate
 //UserModel.find({}), UserModel.findById({})
-const findExistingUser = (req: Request, res: Response, next: NextFunction) => { 
-    let existingUser = req.body; 
+const getExistingUser = (req: Request, res: Response, next: NextFunction) => {  
 
-    return res.json({ 
-        email: existingUser.email, 
-        username: existingUser.username 
+    interface UserData { 
+        email: string; 
+        username: string; 
+        _id: string; 
+    }
+
+    let existingUser = req.body;
+
+    UserModel.findOne({username: existingUser.username}, (err: Error, data: UserData) => { 
+        if (err){ 
+            throw err
+        } else {
+            return res.json(data._id)
+        }
     })
 }
+
 //GET: 
-const getUserProfile = (req: Request, res: Response, next: NextFunction) => { 
+const getUserProfile = async (req: Request, res: Response, next: NextFunction) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
+
+    //defines the obj for profile param to expect 
+    interface UserProfile { 
+        displayName: string; 
+        bio: string; 
+        location: string; 
+        posts: string[];
+    }
+
+    ProfileModel.findOne({username: req.params.user_id}, (err: Error, profile: UserProfile) => { 
+        if (err) { 
+            throw err
+        } else { 
+            return res.json({
+                displayName: profile.displayName, 
+                bio: profile.bio, 
+                location: profile.location
+            })
+        }}
+    ) 
 }
 
 //update existing user 
@@ -72,4 +90,4 @@ const deleteExistingUser = (req: Request, res: Response, next: NextFunction) => 
 
 }
 
-export default { createNewUser, findExistingUser, updateExistingUser, deleteExistingUser, createNewProfile, getUserProfile }; 
+export default { createNewUser, getExistingUser, updateExistingUser, deleteExistingUser, getUserProfile }; 

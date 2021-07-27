@@ -7,12 +7,14 @@ const apiRouter = express.Router();
 //POST: create new user 
 apiRouter.post('/accounts/signup', userController.createNewUser); 
 //POST: create new profile 
-apiRouter.post('/profile/signup', userController.createNewProfile);
+// apiRouter.post('/profile/signup', userController.createNewProfile);
 
 //GET: read existing user 
-apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.findExistingUser); 
+apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.getExistingUser);
+
+
 //GET: read existing user profile 
-apiRouter.get('/profile', userController.getUserProfile); 
+apiRouter.get('/profiles/:user_id', userController.getUserProfile); 
 
 
 //PUT: update existing user
