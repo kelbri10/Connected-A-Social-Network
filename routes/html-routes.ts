@@ -1,4 +1,5 @@
 import express, {Request, Response} from 'express'; 
+import path from 'path';
 const htmlRouter = express.Router(); 
 //html-routes 
 
@@ -9,22 +10,22 @@ const htmlRouter = express.Router();
 
 // /login
 htmlRouter.get('/', (req: Request, res: Response) => { 
-    res.send('welcome to login page');
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
 // /createAccount
 htmlRouter.get('/accounts/signup', (req: Request, res: Response) => { 
-    res.send('create an account here')
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
 // /home 
 htmlRouter.get('/home', (req: Request, res: Response) => { 
-    res.send('this is your home feed'); 
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
 // /profile
 htmlRouter.get('/profile', (req: Request, res: Response) => { 
-    res.send('this is your profile page'); 
+    res.sendFile(path.join(__dirname, '../client/build/index.html')); 
 })
 
 export default htmlRouter; 
