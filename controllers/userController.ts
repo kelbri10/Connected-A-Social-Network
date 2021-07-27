@@ -5,11 +5,11 @@ import UserModel from "../model/user.model";
 //POST 
 //UserModel.create({})
 const createNewUser = (req: Request, res: Response, next: NextFunction) => { 
-    let newUser = req.body;
+    let newUserObj = req.body;
 
-    const newUserProfile = new UserModel(newUser); 
+    const newUser = new UserModel(newUserObj); 
 
-    newUserProfile.save((err) => { 
+    newUser.save((err) => { 
         if(err) throw err; 
     });
     // return newUserProfile.save()
@@ -25,6 +25,16 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     //     console.log('unable to add new user'); 
     // })
     
+}
+
+const createNewProfile = () => { 
+    let newProfileObj = req.body; 
+
+    const newProfile = new ProfileModel(newProfileObj); 
+
+    newProfile.save((err) => { 
+        if(err) throw err; 
+    })
 }
 
 //GET 

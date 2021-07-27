@@ -15,7 +15,7 @@ const getSteps = () => {
 const getStepContent = (step: number) => { 
     switch(step) { 
         case 0: 
-            return <AccountDetails />; 
+            return <AccountDetails/>; 
         case 1: 
             return <ProfileDetails />; 
         case 2: 
@@ -39,8 +39,50 @@ const UserForm = () => {
         setActiveStep((prevStep) => prevStep - 1); 
     }
 
+    const [newUser, setNewUser] = useState({
+        username: '', 
+        password: '', 
+        email: '',
+        displayName: '', 
+        location: '', 
+        bio: ''
+    });
+
+
+    //changes the value of userobj when user types in input box
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        const {name, value} = event.target; 
+
+        setNewUser(user => { 
+            return { 
+                ...user, [name]: value
+            }
+        })
+
+    }
+
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
+        event.preventDefault(); 
+        console.log(newUser); 
+
+        // axios.post('/api/accounts/signup', {
+        //     username: newUser.username, 
+        //     password: newUser.password,
+        //     email: newUser.email, 
+            
+        // }).then((response) => { 
+        //     console.log(response)
+        // }).catch((err) => { 
+        //     console.log(err); 
+        // })
+    }
+
     return (
         <div>
+            <h1>Connected</h1>
+
+            <p>It only takes a minute to get connected!</p>
+            
             <Stepper activeStep={activeStep}>
                 {/* maps array from getSteps to top of stepper */}
                 {steps.map((step) => (

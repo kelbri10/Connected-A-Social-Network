@@ -21,7 +21,7 @@ const AccountDetails : FC = () => {
     });
 
 
-    //changes the value of userobj when user types in input box
+    // //changes the value of userobj when user types in input box
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
         const {name, value} = event.target; 
 
@@ -32,7 +32,7 @@ const AccountDetails : FC = () => {
         })
     }
 
-    //submits userobj through axios post request to api
+    
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
         event.preventDefault(); 
         console.log(newUser); 
@@ -40,7 +40,7 @@ const AccountDetails : FC = () => {
         axios.post('/api/accounts/signup', {
             username: newUser.username, 
             password: newUser.password,
-            email: newUser.email, 
+            email: newUser.email 
             
         }).then((response) => { 
             console.log(response)
@@ -92,7 +92,7 @@ const AccountDetails : FC = () => {
                         />
                     </Box>
             
-                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleSubmit}>Submit</Button> 
             
 
                 </form>
