@@ -19,16 +19,17 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static('client/build'));
 
 app.use(cors({
-    origin: 'http://localhost:3000' //where react app is located 
+    origin: 'http://localhost:3000', //where react app is located 
+    credentials: true
 })); 
 
 //additional middleware
 app.use(cookieParser()); 
 app.use(session({
-    secret: process.env.SECRET_SESSION, 
+    secret: 'secret', 
     resave: true,
-
-    })); 
+    saveUninitialized: true
+})); 
 
 //initializes the database 
 mongoose.connect(
