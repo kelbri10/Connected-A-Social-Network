@@ -1,5 +1,6 @@
 import express, {Request, Response} from 'express'; 
 import path from 'path';
+import isAuthenticated from '../config/middleware/isAuthenticated';
 const htmlRouter = express.Router(); 
 //html-routes 
 
@@ -11,22 +12,10 @@ const htmlRouter = express.Router();
 // /login
 htmlRouter.get('/', (req: Request, res: Response) => { 
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
-
 })
 
-// /createAccount
-htmlRouter.get('/accounts/signup', (req: Request, res: Response) => { 
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-})
 
-// /home 
-htmlRouter.get('/home', (req: Request, res: Response) => { 
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-})
-
-// /profile
-htmlRouter.get('/profile', (req: Request, res: Response) => { 
-    res.sendFile(path.join(__dirname, '../client/build/index.html')); 
-})
-
+if(isAuthenticated){ 
+    res.redirect('/')
+}
 export default htmlRouter; 

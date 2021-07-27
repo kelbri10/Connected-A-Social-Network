@@ -10,13 +10,13 @@ import HomeFeed from './components/HomeFeed';
 function App() {
   return (
     <div className="App">
-      <Switch>
+      
         <Route exact path='/' component={LoginForm}/>
         <Route path='/accounts/signup' component={AccountDetails} />
         <Route path='/profiles/update' component={ProfileDetails} />
         <Route path='/profile' component={UserProfile} />
         <Route path='/home' component={HomeFeed} />
-      </Switch>
+     
     </div>
   );
 }
