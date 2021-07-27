@@ -11,6 +11,12 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 
     newUser.save((err) => { 
         if(err) throw err; 
+
+        const newProfile = new ProfileModel({}); 
+
+        newProfile.save((err) => { 
+            if (err) throw err; 
+        })
     });
     // return newUserProfile.save()
     // .then(profile => { 
@@ -27,15 +33,15 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     
 }
 
-const createNewProfile = () => { 
-    let newProfileObj = req.body; 
+// const createNewProfile = () => { 
+//     let newProfileObj = req.body; 
 
-    const newProfile = new ProfileModel(newProfileObj); 
+//     const newProfile = new ProfileModel(newProfileObj); 
 
-    newProfile.save((err) => { 
-        if(err) throw err; 
-    })
-}
+//     newProfile.save((err) => { 
+//         if(err) throw err; 
+//     })
+// }
 
 //GET 
 //requires passport.authenticate

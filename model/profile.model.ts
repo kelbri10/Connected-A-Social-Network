@@ -6,9 +6,18 @@ import UserModel from './user.model';
 //schema for profileDB
 const profileSchema = new Schema<IProfile>({
     username: {type: Schema.Types.ObjectId, ref: 'User'},
-    displayName: String, 
-    bio: String, 
-    location: String, 
+    displayName: {
+        type: String, 
+        default: 'New user'
+    },
+    bio: {
+        type: String, 
+        default: 'No bio yet'
+    },
+    location: {
+        type: String, 
+        default: 'No location data'
+    },
     posts: [{
         caption: String, 
         hashtags: String
