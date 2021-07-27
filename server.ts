@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 
 import htmlRouter from './routes/html-routes'; 
 import apiRouter from './routes/api-routes'; 
+import path from 'path'; 
 
 import{initialize} from 'passport'; 
 
@@ -14,7 +15,7 @@ const PORT: string | number = process.env.PORT || 8000;
 //expressjs middleware 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true}));
-app.use(express.static('./client/public'));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //initializes the database 
 mongoose.connect(

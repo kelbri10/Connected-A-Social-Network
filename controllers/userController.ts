@@ -46,7 +46,9 @@ const getExistingUser = (req: Request, res: Response, next: NextFunction) => {
         if (err){ 
             throw err
         } else {
-            return res.json(data._id)
+            return res.json({
+                username: data.username,
+                _id: data._id})
         }
     })
 }
