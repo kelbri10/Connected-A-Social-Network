@@ -22,15 +22,6 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     newUser.profile.push(newProfile); 
 }
 
-// const createNewProfile = (req: Request, res: Response, next: NextFunction) => { 
-//     let newProfileObj = req.body; 
-
-//     const newProfile = new ProfileModel(newProfileObj); 
-
-//     newProfile.save((err) => { 
-//         if(err) throw err; 
-//     })
-// }
 
 //GET 
 //requires passport.authenticate
