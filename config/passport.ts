@@ -5,30 +5,30 @@ import passport from 'passport';
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use('local-user', new LocalStrategy(
-    async (username: string, password: string, done: CallableFunction) => { 
-        const existingUser = await UserModel.findOne({
+     (username: string, password: string, done: CallableFunction) => { 
+        // const existingUser = await 
+        UserModel.findOne({
             username: username,
-            password: password
-        // }, (err: Error, user: { validPassword: (arg0: string) => any; }) => { 
-        //     if (err) {return done(err)}
+        }, (err: Error, existingUser: { validPassword: (arg0: string) => any; }) => { 
+            if (err) {return done(err)}
 
-        //     if (!user) { 
-        //         return done(null, false, { message: 'Incorrect username'})
-        //     }
-        //     } else if (!user.validPassword(password)) { 
-        //         return done(null, false, { message: 'Incorrect password'})
-        //     }
+            if (!existingUser) { 
+                return done(null, false, { message: 'Incorrect username'})
+            }
+            // } else if (!existingUser.validPassword(password)) { 
+            //     return done(null, false, { message: 'Incorrect password'})
+            // }
 
-        //     return done(null, user); 
+            return done(null, existingUser); 
         })
 
-        if(!existingUser){ 
-            return done(null, false, {message: 'Incorrect username'})
-        } else if (password !== existingUser.password){
-            return done(null, false, {message: 'Incorrect password'})
-        }
+        // if(!existingUser){ 
+        //     return done(null, false, {message: 'Incorrect username'})
+        // } else if (password !== existingUser.password){
+        //     return done(null, false, {message: 'Incorrect password'})
+        // }
         
-        return done(null, existingUser); 
+        // return done(null, existingUser); 
 
     }
 ))

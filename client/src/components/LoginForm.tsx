@@ -44,7 +44,7 @@ const LoginForm: FC = () => {
                 password: existingUser.password 
             }
         }).then((response) => { 
-            console.log(response); 
+            console.log(response.data); 
         }).catch((err) => { 
             console.log(err); 
         });

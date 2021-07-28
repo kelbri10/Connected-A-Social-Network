@@ -20,6 +20,8 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
     })
 
     newUser.profile.push(newProfile); 
+
+    console.log('user added'); 
 }
 
 
@@ -43,10 +45,14 @@ const loginUser = (req: Request, res: Response, next: NextFunction) => {
 
     let existingUser = req.body;
 
-    UserModel.findOne({username: existingUser.username})
-    .populate('profile')
-    .then((profile) =>{res.json(profile)})
-    .catch((err)=>{res.json(err)}); 
+    console.log('user logged in')
+
+    res.json(existingUser); 
+
+    // UserModel.findOne({username: existingUser.username})
+    // .populate('profile')
+    // .then((profile) =>{res.json(profile)})
+    // .catch((err)=>{res.json(err)}); 
 
     // UserModel.findOne({username: existingUser.username}, (err: Error
         

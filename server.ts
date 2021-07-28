@@ -48,8 +48,8 @@ mongoose.connect(
 app.use(initialize()); 
 // app.use(passport.session()); 
 
-app.use('/', htmlRouter); 
 app.use('/api', apiRouter); 
+// app.use('/', htmlRouter); 
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 
