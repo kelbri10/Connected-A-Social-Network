@@ -1,10 +1,9 @@
 import React, { FC } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { Button, TextField} from "@material-ui/core";
-import Box from '@material-ui/core/Box'; 
+import { makeStyles, Button, TextField, Typography, Grid} from "@material-ui/core";
 import { useState } from "react";
 import { Link } from 'react-router-dom'; 
 import axios from "axios";
+
 
 
 
@@ -45,27 +44,46 @@ const SignUp : FC = () => {
     }
 
     
-    const useStyles = makeStyles((theme: Theme) =>
-    createStyles ({
-        root: { 
-            margin: theme.spacing(6)
+    const useStyles = makeStyles({
+        field: { 
+            marginTop: 10, 
+            marginBottom: 10
         }
     })
-    ); 
+    
 
 
     const classes = useStyles(); 
 
     return ( 
-        <div style={{ width: '100%'}}>
-            <h1>Connected</h1>
+        <Grid container
+        spacing={0}
+        alignItems='center'
+        style={{minHeight: '100vh'}}
+        justifyContent='center'
+        direction='column'>
+            <Grid item>
+            <Typography
+            variant='h2'
+            color='secondary'>Connected</Typography>
+            </Grid>
 
-            <h2>It only takes a minute to get connected!</h2>
+            <Grid item>
+            <Typography 
+            variant='h6'
+            color='textSecondary'>It only takes a minute to get connected!</Typography>
+            </Grid>
 
-            <Box display='flex' flexDirection='column' p={1} m={1}>
-                <form className={classes.root} noValidate autoComplete='off'>
-                    <Box p={0.5}>
+            <Grid item>
+                <form 
+                noValidate 
+                autoComplete='off'>
+
+                    <Grid item>
                         <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
                         id='username' 
                         name='username'
                         label='Username'
@@ -73,10 +91,13 @@ const SignUp : FC = () => {
                         required 
                         onChange={handleChange}
                         />
-                    </Box>
+                    </Grid>
 
-                    <Box p={0.5}>
+                    <Grid item>
                         <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
                         id='password' 
                         name='password'
                         label='Password' 
@@ -84,10 +105,13 @@ const SignUp : FC = () => {
                         required
                         onChange={handleChange}
                         />
-                    </Box>
+                    </Grid>
 
-                    <Box p={0.5}>
+                    <Grid item>
                         <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
                         id='email' 
                         name='email'
                         label='Email'
@@ -95,17 +119,28 @@ const SignUp : FC = () => {
                         required 
                         onChange={handleChange}
                         />
-                    </Box>
+                    </Grid>
             
-                    <Button onClick={handleSubmit}>Submit</Button> 
-            
+                    <Grid item>
+                        <Button 
+                        className={classes.field}
+                        color='secondary'
+                        size='large'
+                        variant='outlined'
+                        onClick={handleSubmit}>
+                            Submit
+                        </Button> 
+                    </Grid>
 
                 </form>
-        
-            </Box>
+            </Grid>
 
-            <p>Already have an account? <Link to = '/'>Login!</Link></p>
-        </div>
+            <Grid item>
+                <Typography
+                variant='h6'>Already have an account? <Link to = '/'>Login!</Link></Typography>
+            </Grid>
+        
+        </Grid>
     )
 
 }

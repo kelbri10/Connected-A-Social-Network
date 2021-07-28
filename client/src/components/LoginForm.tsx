@@ -61,12 +61,14 @@ const LoginForm: FC = () => {
             marginBottom: 10
         }
     })
+    
     const classes = useStyles(); 
 
     return (
         <Grid container
+        spacing={0}
         alignItems='center'
-        alignContent='center'
+        style={{minHeight: '100vh'}}
         justifyContent='center'
         direction='column'
         >
