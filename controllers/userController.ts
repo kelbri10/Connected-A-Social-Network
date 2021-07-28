@@ -43,26 +43,31 @@ const loginUser = (req: Request, res: Response) => {
     posts: string[];
     }
 
-
-    console.log('user logged in')
-
     let existingUser = req.body; 
-    const authorizedUser = true; 
-    //console.log(authorizedUser);
-    return existingUser; 
+    console.log('user logged in')
+    // res.json(existingUser);
+    // let existingUser = req.body; 
+    // const authorizedUser = true; 
+
+    // console.log(authorizedUser);
+    // return existingUser; 
+    console.log(`/api/profiles/${req.body.username}`)
+    res.redirect('/api/profiles/' + req.body.username);
 }
 
 //GET: 
 const getUserProfile = async (req: Request, res: Response) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
-    // let existingUser = req.body;
+    
 
     console.log('user profile found')
-    console.log(req.body); 
-    // UserModel.findOne({username: existingUser.username})
-    // .populate('profile')
-    // .then((profile) =>{res.json(profile)})
-    // .catch((err)=>{res.json(err)}); 
+    console.log(req.params.user); 
+
+    UserModel.findOne({username: req.params.user})
+    .populate('profile')
+    .then((profile) =>{res.json(profile)})
+    .catch((err)=>{res.json(err)}); 
+    
 }
 
 //update existing user 
