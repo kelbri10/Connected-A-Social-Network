@@ -9,15 +9,6 @@ apiRouter.post('/accounts/signup', userController.createNewUser);
 
 //POST gets existing user and user profile after validation process 
 apiRouter.post('/accounts/login', passport.authenticate('local-user'), userController.loginUser)
-// apiRouter.get('/accounts/login', passport.authenticate('local-user', {
-//     successRedirect: '/api/profiles/user', 
-//     failureRedirect: '/api/accounts/login'
-// }));
-
-// apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.loginUser, (req, res) => {
-//     res.redirect('/api/profile/user/' + req.body.username)
-// });
-
 
 //GET user profile
 apiRouter.get('/profiles/:user', userController.getUserProfile);

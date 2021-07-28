@@ -47,12 +47,14 @@ const loginUser = (req: Request, res: Response) => {
     console.log('user logged in')
     // res.json(existingUser);
     // let existingUser = req.body; 
-    // const authorizedUser = true; 
+    const authorizedUser = true; 
 
-    // console.log(authorizedUser);
+    console.log(authorizedUser);
     // return existingUser; 
     console.log(`/api/profiles/${req.body.username}`)
     res.redirect('/api/profiles/' + req.body.username);
+
+    return authorizedUser; 
 }
 
 //GET: 

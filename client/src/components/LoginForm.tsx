@@ -3,7 +3,8 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {Button, TextField} from '@material-ui/core'; 
 import { useState, useEffect } from 'react';
 import Box from '@material-ui/core/Box'; 
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory} from 'react-router-dom'; 
+
 import axios from 'axios'; 
 
 
@@ -21,6 +22,8 @@ const LoginForm: FC = () => {
         password: ''
     });  
 
+    const history = useHistory(); 
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
         const {name, value} = event.target; 
 
@@ -35,16 +38,22 @@ const LoginForm: FC = () => {
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
         //prevents user from resubmitting once button clicked
         event.preventDefault(); 
+
         //takes form data and sends to getEExistingUser to autheticate user 
         console.log(existingUser); 
         //axios get request to express server
-        axios.get('/api/accounts/login', {
-            params: {
-                username: existingUser.username,
-                password: existingUser.password 
-            }
+        axios.post('/api/accounts/login', {
+           
+            username: existingUser.username,
+            password: existingUser.password 
+            
         }).then((response) => { 
-            console.log(response.data); 
+            if(response.data.username){
+                let isAuth = true; 
+                console.log(isAuth);
+                history.push('/profile');
+                return isAuth; 
+            } 
         }).catch((err) => { 
             console.log(err); 
         });
