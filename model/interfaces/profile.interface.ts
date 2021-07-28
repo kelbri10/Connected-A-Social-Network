@@ -1,5 +1,6 @@
 //interface 
 export default interface IProfile{
+    username: {}[]; 
     displayName: string;  
     bio: string; 
     location?: string; 

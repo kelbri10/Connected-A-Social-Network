@@ -52,8 +52,7 @@ const loginUser = (req: Request, res: Response) => {
     console.log(authorizedUser);
     // return existingUser; 
     console.log(`/api/profiles/${req.body.username}`)
-    res.redirect('/api/profiles/' + req.body.username);
-
+    res.redirect('/api/profiles/' + req.body._id);
     return authorizedUser; 
 }
 
@@ -63,10 +62,10 @@ const getUserProfile = async (req: Request, res: Response) => {
     
 
     console.log('user profile found')
-    console.log(req.params.user); 
+    // console.log(req.params._id); 
 
-    UserModel.findOne({username: req.params.user})
-    .populate('profile')
+    ProfileModel.findOne({username: req.params._id})
+    // .populate('profile')
     .then((profile) =>{res.json(profile)})
     .catch((err)=>{res.json(err)}); 
     

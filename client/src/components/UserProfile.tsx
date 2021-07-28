@@ -3,10 +3,14 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core'; 
 import Box from '@material-ui/core/Box'; 
 import { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom'; 
+import { useLocation } from 'react-router-dom'; 
 import axios from 'axios'; 
 
 const UserProfile: FC = () => {
+    const location = useLocation(); 
+
+
+    console.log(location.search); 
     // const [profile, setProfile] = useState([]); 
 
     // const loadProfile = () => { 
@@ -22,15 +26,20 @@ const UserProfile: FC = () => {
     // // const [profile, setProfile] = useState([]);
 
     // // useEffect(() => { 
-        
-    // //     axios.get('/api/profiles/:user_id')
-    // //     .then(response =>{
-    // //         setProfile(response)
-    // //     })
-    // //     .catch((err: any) => {
-    // //         console.log(err)
-    // //     })
-    // // }, [])
+      
+
+    axios.get(`/api/profiles/:${location.search}`)
+    .then((response) => { 
+        console.log(response); 
+    })
+    //     axios.get('/api/profiles/:user')
+    //     .then(response =>{
+    //         setProfile(response)
+    //     })
+    //     .catch((err: any) => {
+    //         console.log(err)
+    //     })
+    // }, [])
 
     return (
         <div style={{ width: '100%'}}>

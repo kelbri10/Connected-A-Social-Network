@@ -51,8 +51,14 @@ const LoginForm: FC = () => {
             if(response.data.username){
                 let isAuth = true; 
                 console.log(isAuth);
-                history.push('/profile');
-                return isAuth; 
+                history.push({
+                    pathname:'/profile',
+                    search: `${response.data.username}`, 
+                    state: {
+                        update: true,
+                    }
+                });
+                // return isAuth; 
             } 
         }).catch((err) => { 
             console.log(err); 
