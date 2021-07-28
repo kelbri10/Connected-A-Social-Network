@@ -45,24 +45,24 @@ const loginUser = (req: Request, res: Response) => {
 
 
     console.log('user logged in')
-    
+
     let existingUser = req.body; 
     const authorizedUser = true; 
     //console.log(authorizedUser);
-    return authorizedUser; 
+    return existingUser; 
 }
 
 //GET: 
 const getUserProfile = async (req: Request, res: Response) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
-    let existingUser = req.body;
+    // let existingUser = req.body;
 
     console.log('user profile found')
-
-    UserModel.findOne({username: existingUser.username})
-    .populate('profile')
-    .then((profile) =>{res.json(profile)})
-    .catch((err)=>{res.json(err)}); 
+    console.log(req.body); 
+    // UserModel.findOne({username: existingUser.username})
+    // .populate('profile')
+    // .then((profile) =>{res.json(profile)})
+    // .catch((err)=>{res.json(err)}); 
 }
 
 //update existing user 

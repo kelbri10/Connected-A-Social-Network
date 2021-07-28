@@ -9,11 +9,14 @@ passport.use('local-user', new LocalStrategy(
         // const existingUser = await 
         UserModel.findOne({
             username: username,
-        }, (err: Error, existingUser: { validPassword: (arg0: string) => any; }) => { 
+            password: password
+        }, (err: Error, existingUser: { username: string, password:string }) => { 
             if (err) {return done(err)}
 
             if (!existingUser) { 
                 return done(null, false, { message: 'Incorrect username'})
+            } else if (password !== existingUser.password) { 
+                return done(null, false, {message: 'Incorrect password'})
             }
 
 
