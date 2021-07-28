@@ -45,11 +45,7 @@ const loginUser = (req: Request, res: Response) => {
 
 
     console.log('user logged in')
-
-    // UserModel.findOne({username: existingUser.username})
-    // .populate('profile')
-    // .then((profile) =>{res.json(profile)})
-    // .catch((err)=>{res.json(err)}); 
+    
     let existingUser = req.body; 
     const authorizedUser = true; 
     //console.log(authorizedUser);
