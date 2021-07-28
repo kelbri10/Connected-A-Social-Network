@@ -51,7 +51,9 @@ const loginUser = (req: Request, res: Response) => {
     // .then((profile) =>{res.json(profile)})
     // .catch((err)=>{res.json(err)}); 
     let existingUser = req.body; 
-    return res.json(existingUser); 
+    const authorizedUser = true; 
+    //console.log(authorizedUser);
+    return authorizedUser; 
 }
 
 //GET: 
