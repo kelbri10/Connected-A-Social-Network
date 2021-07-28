@@ -44,30 +44,35 @@ const loginUser = (req: Request, res: Response) => {
     }
 
     let existingUser = req.body; 
-    console.log('user logged in')
-    // res.json(existingUser);
-    // let existingUser = req.body; 
-    const authorizedUser = true; 
-
-    console.log(authorizedUser);
-    // return existingUser; 
-    console.log(`/api/profiles/${req.body.username}`)
-    res.redirect('/api/profiles/' + req.body._id);
-    return authorizedUser; 
+    console.log('loginuser: user logged in')
+    
+    
+   
+    console.log(`/api/profiles/${existingUser.username}`)
+    res.redirect('/api/profiles/' + existingUser.username);
+    
 }
 
 //GET: 
 const getUserProfile = async (req: Request, res: Response) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
+    let user = req.params; 
+
+    console.log('getuser: user profile found')
+    console.log('This is the params' + ' ' + req.params.user);
+    
+    UserModel.findOne({username: req.params.user})
+    .populate('profile')
+    .exec((err, user) => {
+        if (err) console.log(err);  
+        res.json(user)
+    })
     
 
-    console.log('user profile found')
-    // console.log(req.params._id); 
-
-    ProfileModel.findOne({username: req.params._id})
-    // .populate('profile')
-    .then((profile) =>{res.json(profile)})
-    .catch((err)=>{res.json(err)}); 
+    // ProfileModel.findOne({username: req.params.user})
+    // // .populate('profile')
+    // .then((profile) =>{res.json(profile)})
+    // .catch((err)=>{res.json(err)}); 
     
 }
 

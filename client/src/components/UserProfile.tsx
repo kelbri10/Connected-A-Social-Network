@@ -10,40 +10,26 @@ const UserProfile: FC = () => {
     const location = useLocation(); 
 
 
-    console.log(location.search); 
-    // const [profile, setProfile] = useState([]); 
+    console.log(`this is the location search: ${location.search}`); 
+    const [profile, setProfile] = useState(null); 
 
-    // const loadProfile = () => { 
-    //     useEffect(() => { 
-    //         axios.get('profileapi').then(res.data => { 
-    //             setProfile(res.data)
-    //         })
-    //         .catch((err) => { 
-    //             console.log(err)
-    //         })
-    //      })
-    // }
-    // // const [profile, setProfile] = useState([]);
-
-    // // useEffect(() => { 
-      
-
-    axios.get(`/api/profiles/:${location.search}`)
-    .then((response) => { 
-        console.log(response); 
-    })
-    //     axios.get('/api/profiles/:user')
-    //     .then(response =>{
-    //         setProfile(response)
-    //     })
-    //     .catch((err: any) => {
-    //         console.log(err)
-    //     })
-    // }, [])
+    
+    useEffect(() => { 
+        console.log('useeffect: you are here'); 
+        axios.get(`/api/profiles/:${location.search}`)
+        .then((response) => { 
+            console.log(response);
+            setProfile(response.data);
+        })
+        .catch((err) => { 
+            console.log(err)
+        })
+    }, []);
 
     return (
         <div style={{ width: '100%'}}>
             <h1>You see this when you successfully login</h1>
+
 {/*             
             <h1>{props.displayName}</h1>
             <h2>{props.username}</h2>

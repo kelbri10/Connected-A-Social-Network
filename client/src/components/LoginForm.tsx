@@ -48,9 +48,10 @@ const LoginForm: FC = () => {
             password: existingUser.password 
             
         }).then((response) => { 
+            console.log(response); 
             if(response.data.username){
-                let isAuth = true; 
-                console.log(isAuth);
+                console.log('isAuth:  you can be here');
+                console.log(response.data.username)
                 history.push({
                     pathname:'/profile',
                     search: `${response.data.username}`, 
