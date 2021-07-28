@@ -54,29 +54,7 @@ const loginUser = (req: Request, res: Response, next: NextFunction) => {
     // .then((profile) =>{res.json(profile)})
     // .catch((err)=>{res.json(err)}); 
 
-    // UserModel.findOne({username: existingUser.username}, (err: Error
-        
-    //     , data: UserData) => { 
-    //     if (err){ 
-    //         throw err
-    //     } else {
-
-    //         let username_id = data._id; 
-            
-    //         ProfileModel.findOne({username: username_id}, (err: Error, profile: UserProfile) => { 
-    //             if (err) { 
-    //                 throw err
-    //             } else { 
-    //                 return res.json({
-    //                     username: existingUser.username, 
-    //                     displayName: profile.displayName, 
-    //                     bio: profile.bio, 
-    //                     location: profile.location
-    //                 })
-    //             }}
-    //         ) 
-    //     }
-    // })
+    
 }
 
 //GET: 

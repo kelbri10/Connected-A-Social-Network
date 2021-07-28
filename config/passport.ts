@@ -15,21 +15,12 @@ passport.use('local-user', new LocalStrategy(
             if (!existingUser) { 
                 return done(null, false, { message: 'Incorrect username'})
             }
-            // } else if (!existingUser.validPassword(password)) { 
-            //     return done(null, false, { message: 'Incorrect password'})
-            // }
+
 
             return done(null, existingUser); 
         })
 
-        // if(!existingUser){ 
-        //     return done(null, false, {message: 'Incorrect username'})
-        // } else if (password !== existingUser.password){
-        //     return done(null, false, {message: 'Incorrect password'})
-        // }
-        
-        // return done(null, existingUser); 
-
+     
     }
 ))
 
