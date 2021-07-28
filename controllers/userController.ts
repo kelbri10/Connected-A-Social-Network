@@ -56,16 +56,15 @@ const loginUser = (req: Request, res: Response) => {
 //GET: 
 const getUserProfile = async (req: Request, res: Response) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
-    let user = req.params; 
 
     console.log('getuser: user profile found')
-    console.log('This is the params' + ' ' + req.params.user);
+    console.log('This is the params' + ' ' + req.params.user.replace(':', ''));
     
     UserModel.findOne({username: req.params.user})
     .populate('profile')
     .exec((err, user) => {
         if (err) console.log(err);  
-        res.json(user)
+        res.json()
     })
     
 

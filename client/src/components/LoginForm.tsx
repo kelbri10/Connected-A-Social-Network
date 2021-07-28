@@ -1,20 +1,9 @@
 import React,  { FC } from 'react'; 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import {Button, TextField} from '@material-ui/core'; 
-import { useState, useEffect } from 'react';
-import Box from '@material-ui/core/Box'; 
+import {Button, makeStyles, TextField, Typography,  Grid} from '@material-ui/core'; 
+import { useState} from 'react';
 import { Link, useHistory} from 'react-router-dom'; 
-
 import axios from 'axios'; 
 
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles ({
-        root: { 
-            margin: theme.spacing(6)
-        }
-    })
-); 
 
 const LoginForm: FC = () => {
     const [existingUser, setExistingUser] = useState({
@@ -65,42 +54,79 @@ const LoginForm: FC = () => {
             console.log(err); 
         });
     }
-    
 
+    const useStyles = makeStyles({
+        field: { 
+            marginTop: 10, 
+            marginBottom: 10
+        }
+    })
     const classes = useStyles(); 
-    
-    return (
-        <div>
-            <h1>Login Form</h1>
 
-            <form className={classes.root} noValidate autoComplete='off'>
-                <div>
+    return (
+        <Grid container
+        alignItems='center'
+        alignContent='center'
+        justifyContent='center'
+        direction='column'
+        >
+
+            <Grid item>
+            <Typography 
+            variant='h1' 
+            color='secondary'>Login</Typography>
+            </Grid>
+
+            <Grid item>
+                <form 
+                noValidate 
+                autoComplete='off'>
+                    <Grid item>
                     <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
                         id='username' 
                         name='username'
                         label='Username' 
                         value={existingUser.username}
                         required
                         onChange={handleChange}/>
-                </div>
-                <div>
+                    </Grid>
+
+                    <Grid item>
                     <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
                         id='password' 
                         name='password'
                         label='Password' 
                         value={existingUser.password}
                         required
                         onChange={handleChange}/>
-                </div>
-                
-                <div>
-                    <Button onClick={handleSubmit}> Submit </Button>
-                </div>
+                    </Grid>
 
-            </form >
+                    <Grid item>
+                    <Button
+                    className={classes.field}
+                    color='secondary'
+                    size='large'
+                    variant='outlined'
+                    onClick={handleSubmit}> 
+                    Submit </Button>
+                    </Grid>
 
-            <p>Don't already have an account? Create one <Link to = '/accounts/signup'>here</Link>!</p>
-        </div>
+                </form >
+            </Grid>
+
+            <Grid item>
+            <Typography 
+            variant='h6'>
+            Don't already have an account? Create one <Link to = '/accounts/signup'>here</Link>!</Typography>
+            </Grid>
+
+        </Grid>
     )}
 
 

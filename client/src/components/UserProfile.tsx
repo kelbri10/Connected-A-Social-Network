@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core'; 
-import Box from '@material-ui/core/Box'; 
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; 
 import axios from 'axios'; 
+
 
 const UserProfile: FC = () => {
     const location = useLocation(); 
@@ -13,18 +12,19 @@ const UserProfile: FC = () => {
     console.log(`this is the location search: ${location.search}`); 
     const [profile, setProfile] = useState(null); 
 
+    // console.log('this is the response data' + response.data)
     
     useEffect(() => { 
         console.log('useeffect: you are here'); 
-        axios.get(`/api/profiles/:${location.search}`)
+        axios.get(`/api/profiles/:${location.search.replace('?','')}`)
         .then((response) => { 
             console.log(response);
-            setProfile(response.data);
+            setProfile(response.data); 
         })
         .catch((err) => { 
             console.log(err)
         })
-    }, []);
+    }, [location.search]);
 
     return (
         <div style={{ width: '100%'}}>
