@@ -28,7 +28,7 @@ const createNewUser = (req: Request, res: Response, next: NextFunction) => {
 //GET 
 //requires passport.authenticate
 //UserModel.find({}), UserModel.findById({})
-const loginUser = (req: Request, res: Response, next: NextFunction) => {  
+const loginUser = (req: Request, res: Response) => {  
 
     interface UserData { 
         email: string; 
@@ -43,24 +43,28 @@ const loginUser = (req: Request, res: Response, next: NextFunction) => {
     posts: string[];
     }
 
-    let existingUser = req.body;
 
     console.log('user logged in')
-
-    res.json(existingUser); 
 
     // UserModel.findOne({username: existingUser.username})
     // .populate('profile')
     // .then((profile) =>{res.json(profile)})
     // .catch((err)=>{res.json(err)}); 
-
-    
+    let existingUser = req.body; 
+    return res.json(existingUser); 
 }
 
 //GET: 
-const getUserProfile = async (req: Request, res: Response, next: NextFunction) => { 
+const getUserProfile = async (req: Request, res: Response) => { 
 //take existing user and get profile by matching ids and return profile back to the frontend
+    let existingUser = req.body;
 
+    console.log('user profile found')
+
+    UserModel.findOne({username: existingUser.username})
+    .populate('profile')
+    .then((profile) =>{res.json(profile)})
+    .catch((err)=>{res.json(err)}); 
 }
 
 //update existing user 
