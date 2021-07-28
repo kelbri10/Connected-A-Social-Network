@@ -2,7 +2,7 @@ import express, {Request, Response} from 'express';
 import path from 'path';
 import isAuthenticated from '../config/middleware/isAuthenticated';
 
-const router = express.Router(); 
+const htmlRouter = express.Router(); 
 //html-routes 
 
 // //live
@@ -12,7 +12,7 @@ const router = express.Router();
 
 
 // /login
-router.get('/*', (req: Request, res: Response) => { 
+htmlRouter.get('/*', (req: Request, res: Response) => { 
     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 })
 
@@ -22,4 +22,4 @@ router.get('/*', (req: Request, res: Response) => {
 // 
 
 
-export default router; 
+export default htmlRouter; 

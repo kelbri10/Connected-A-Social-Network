@@ -8,7 +8,8 @@ const apiRouter = express.Router();
 apiRouter.post('/accounts/signup', userController.createNewUser); 
 
 //GET: gets existing user and user profile after validation process 
-apiRouter.get('/accounts/login', passport.authenticate('local-user'), userController.loginUser);
+apiRouter.get('/accounts/login', passport.authenticate('local-user', {successRedirect: '/profile', failureRedirect: '/login'})/*userController.loginUser*/);
+
 // apiRouter.get('/profile/:user', (req, res, next) => { 
 //     passport.authenticate('local-user', (err, user, info) => { 
 //         if(err) {return next(err)}
@@ -27,4 +28,4 @@ apiRouter.get('/accounts/login', passport.authenticate('local-user'), userContro
 
 // //DELETE: delete existing user 
 // apiRouter.delete('/user/:id', userController.deleteExistingUser)
-// export default apiRouter; 
+export default apiRouter; 

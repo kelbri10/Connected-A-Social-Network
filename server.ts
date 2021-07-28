@@ -1,7 +1,8 @@
 import express from 'express'; 
 import mongoose from 'mongoose'; 
 
-import router from './routes/html-routes'; 
+import htmlRouter from './routes/html-routes'; 
+import apiRouter from './routes/api-routes'; 
 
 import{initialize} from 'passport'; 
 import cookieParser from 'cookie-parser'; 
@@ -47,7 +48,8 @@ mongoose.connect(
 app.use(initialize()); 
 // app.use(passport.session()); 
 
-app.use('/', router); 
+app.use('/', htmlRouter); 
+app.use('/api', apiRouter); 
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 
