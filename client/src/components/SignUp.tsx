@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { makeStyles, Button, TextField, Typography, Grid, InputAdornment} from "@material-ui/core";
 import { useState } from "react";
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom'; 
 import {AccountCircle, Lock, Email} from '@material-ui/icons'
 import axios from "axios";
 
@@ -14,6 +14,8 @@ const SignUp : FC = () => {
         password: '', 
         email: '',
     });
+
+    const history = useHistory();
 
     // //changes the value of userobj when user types in input box
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
@@ -38,7 +40,13 @@ const SignUp : FC = () => {
             email: newUser.email 
             
         }).then((response) => { 
-            console.log(response)
+            // console.log(response)
+            history.push({
+                pathname: '/login', 
+                state: { 
+                    update: true,
+                }
+            })
         }).catch((err) => { 
             console.log(err); 
         })
