@@ -26,13 +26,20 @@ I created user profiles to align with design considerations I had for making a i
 ## 3. Must-Haves 
 Requirements for this project include: 
 - [x] Use a modern JS Library/Framework
+    - In this project, I used ReactJS.
 - [ ] Allows user to interact with application in a minimum of 3 different ways *In progress*
+    -As a user, you can sign up for a new account, login into your account, and I am currently working on rendering the profile details so that you can edit your profile with your information to replace default placeholders.
 - [x] Uses architectural pattern
 - [ ] Integration with a 3rd party RESTful API *In progress*
-- [ ] Uses at least 5 UI components from material-ui/@core *In progress*
+    -Outside of integrating with a 3rd party API, I also wrote some of my own backend api routes to CREATE a new user with default profile settings, LOGIN user and once authenticated REDIRECT them to the profile page on the frontend.
+- [x] Uses at least 5 UI components from material-ui/@core 
+    -I utilized multiple UI components from the material-ui npm package. For styling I applied basic Typography for the font and Grid for layout. I also pulled the email, password, and account icon. I also incorporated the Button component throughout the front end.
 - [ ] Uses a reusable UI component that I created *In progress*
 
-## 4. Languages, Frameworks, and Libraries 
+## 4. Views 
+![View of Login and Sign up page](imgs/Views.png)
+
+## 5. Languages, Frameworks, and Libraries 
 - [Typescript](https://www.typescriptlang.org/)
 - [ReactJS](https://reactjs.org/docs/getting-started.html) 
 - [PassportJS](http://www.passportjs.org/) 

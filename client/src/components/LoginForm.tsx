@@ -2,7 +2,7 @@ import React,  { FC } from 'react';
 import {Button, makeStyles, TextField, Typography,  Grid, InputAdornment} from '@material-ui/core'; 
 import { useState} from 'react';
 import { Link, useHistory} from 'react-router-dom'; 
-import {AccountCircle, Lock, Email} from '@material-ui/icons';
+import {AccountCircle, Lock} from '@material-ui/icons';
 import axios from 'axios'; 
 
 
@@ -78,6 +78,12 @@ const LoginForm: FC = () => {
             <Typography 
             variant='h1' 
             color='secondary'>Login</Typography>
+            </Grid>
+
+            <Grid item>
+            <Typography 
+            variant='h6'
+            color='textSecondary'>Welcome back! Let's get Connected!</Typography>
             </Grid>
 
             <Grid item>
