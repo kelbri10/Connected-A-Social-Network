@@ -65,15 +65,19 @@ Additional files and folders of importannce:
     - Config
         - The config file holds the code that authenticates the user through passport js local-strategy and checks that they have an account saved to the database. If they do not they are not allowed access to view profile. Once the user is authenticated with the correct user name and password they are then redirected to the profile page.
 
-## 6. How to Install + Live Demo
-To run the code locally install dev dependences and run: 
-```npm run dev```
-
+## 6. How to Install 
+To run the code locally, install dependences and run: 
+```npm install```
+This ensures that all necessary dependencies are stored locally on your computer. Due to issues with hosting my proxy server through Heroku, this application can only be run locally. This is done by setting the proxy server to ```localhost:8000```. In this way all requests are routed through the express server and deliver up the necessary redirects client side as well. Because this application uses typescript, before you are able to run the server.ts you must compile all files with the ```tsc``` command to ensure typescript is compiled to javascript. Once this is complete you may run ```npm start``` in both the client and server folder. Doing so, makes the router and the front end running so that the router can handle the necessary requests.
 
 ## 5. Languages, Frameworks, and Libraries 
+Here is a list of resources used to make this project possible: 
 - [Typescript](https://www.typescriptlang.org/)
 - [ReactJS](https://reactjs.org/docs/getting-started.html) 
 - [PassportJS](http://www.passportjs.org/) 
 - [ExpressJS](https://expressjs.com/)
 - [Mongoose](https://mongoosejs.com/)
 - [Axios](https://github.com/axios/axios) 
+
+## 6. Reflections 
+For the time frame provided, I think I did a good job getting the application to authenticate a user, create a new account, and return information back to the user on the client side. If I had more time, I would definitely replace the 3rd party integration of GIPHY with Facebook or Instagram recent posts. As it stands with the time frame given, I opted to incoporate random gif renderings which coincides with the fun aspect of a social media app. To take this project further I would also include bcrypt to hash passwords as well as on the frontend incorporate more popovers and directive based alerts. I would also like to incorporate a loading animation between login and displaying profile, as well as thumbs up and down for more user to user interaction. Regarding deployment, with more time I would have troubleshooted hosting a proxy server and the front end through Heroku and probably another service such as Netlify. This way requests can be handled quicker than when hosting 2 servers off one computer.
