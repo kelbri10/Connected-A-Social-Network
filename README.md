@@ -48,7 +48,6 @@ Requirements for this project include:
 ![View of Login and Sign up page](imgs/Views.png)
 
 ## 5. Folder Structure Explained
-![Folder Structure](Folder.PNG)
 
 - Client/View
     - The client folder hosts the react-app. Boilerplate data is housed in the folder alongside the components/pages that are rendered client-side from the src folder.
