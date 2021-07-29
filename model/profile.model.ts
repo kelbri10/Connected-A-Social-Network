@@ -15,7 +15,7 @@ const profileSchema = new Schema<IProfile>({
     },
     bio: {
         type: String, 
-        default: "We don't know much about them, but we're sure their great."
+        default: "We don't know much about them, but we're sure they're great."
     },
     location: {
         type: String, 
