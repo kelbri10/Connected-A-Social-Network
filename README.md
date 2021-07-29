@@ -36,8 +36,8 @@ Requirements for this project include:
 - [x] Uses architectural pattern
     -For this project, I applied the Model-View-Controller architectural pattern to organize my code. The model folder holds the interfaces and database schemas for users info and password. The views is the client folder with the src files for components being rendered, and the controller folder holds the api logic.
 
-- [ ] Integration with a 3rd party RESTful API *In progress*
-    - Outside of integrating with a 3rd party API, I also wrote some of my own backend api routes to CREATE a new user with default profile settings, LOGIN user and once authenticated REDIRECT them to the profile page on the frontend.
+- [x] Integration with a 3rd party RESTful API *In progress*
+    - I utilized GIPHY API to load a random gif to the profile section. Outside of integrating with a 3rd party API, I also wrote some of my own backend api routes to CREATE a new user with default profile settings, LOGIN user and once authenticated REDIRECT them to the profile page on the frontend.
 
 - [x] Uses at least 5 UI components from material-ui/@core 
     - I utilized multiple UI components from the material-ui npm package. For styling I applied basic Typography for the font and Grid for layout. I also pulled the email, password, and account icon. I also incorporated the Button component throughout the front end.

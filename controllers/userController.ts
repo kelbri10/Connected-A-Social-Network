@@ -75,10 +75,15 @@ const getUserProfile = async (req: Request, res: Response) => {
     
 }
 
+const getRandomGIF = (req: Request, res: Response) => { 
+    let API_KEY ='U6BnGxyByZv5DCJC1Lf7FVUy9j8SRT51'; 
+    let queryURL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
+}
+
 //update existing user 
 //PUT 
 //UserModel.findOneAndUpdate({})
-const updateExistingUser = (req: Request, res: Response, next: NextFunction) => { 
+const updateExistingUser = (req: Request, res: Response) => { 
 
 }
 
@@ -89,4 +94,4 @@ const deleteExistingUser = (req: Request, res: Response, next: NextFunction) => 
 
 }
 
-export default { createNewUser, loginUser, updateExistingUser, deleteExistingUser, getUserProfile }; 
+export default { createNewUser, loginUser, getUserProfile, getRandomGIF}; 
