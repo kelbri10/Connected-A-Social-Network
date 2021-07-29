@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 const UserProfile: FC = () => {
-    // const location = useLocation(); 
+    const location = useLocation(); 
 
 
     // console.log(`this is the location search: ${location.search}`); 
@@ -23,18 +23,19 @@ const UserProfile: FC = () => {
             // console.log(response.data.data.images.fixed_height.url); 
             setGif(response.data.data.images.fixed_height_small.url);
         })
-    }, [])
-    // useEffect(() => { 
-    //     console.log('useeffect: you are here'); 
-    //     axios.get(`/api/profiles/:${location.search.replace('?','')}`)
-    //     .then((response) => { 
-    //         console.log(response);
-    //         setProfile(response.data); 
-    //     })
-    //     .catch((err) => { 
-    //         console.log(err)
-    //     })
-    // }, [location.search]);
+    }, []); 
+    
+    useEffect(() => { 
+        console.log('useeffect: you are here'); 
+        axios.get(`/api/profiles/:${location.search.replace('?','')}`)
+        .then((response) => { 
+            console.log(response);
+            setProfile(response.data); 
+        })
+        .catch((err) => { 
+            console.log(err)
+        })
+    }, [location.search]);
 
     const useStyles = makeStyles({
         card: {

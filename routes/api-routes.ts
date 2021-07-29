@@ -13,7 +13,7 @@ apiRouter.post('/accounts/login', passport.authenticate('local-user'), userContr
 //GET user profile
 apiRouter.get('/profiles/:user', userController.getUserProfile);
 
-apiRouter.get('/get_random_gif/:key', userController.getRandomGIF)
+
 
 // //PUT: update existing user
 // apiRouter.put('/user/:id', userController.updateExistingUser)

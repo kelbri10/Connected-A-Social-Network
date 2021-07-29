@@ -42,12 +42,12 @@ const LoginForm: FC = () => {
             
         }).then((response) => { 
             console.log(response); 
-            if(response.data.username){
-                // console.log('isAuth:  you can be here');
+            if(response.status === 200){
+                console.log('isAuth:  you can be here');
                 // console.log(response.data.username)
                 history.push({
                     pathname:'/profile',
-                    search: `${response.data.username}`, 
+                    search: `${existingUser.username}`, 
                     state: {
                         update: true,
                     }
