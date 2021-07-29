@@ -11,15 +11,15 @@ const profileSchema = new Schema<IProfile>({
         
     displayName: {
         type: String, 
-        default: 'New user'
+        default: 'Display Name'
     },
     bio: {
         type: String, 
-        default: 'No bio yet'
+        default: "We don't know much about them, but we're sure their great."
     },
     location: {
         type: String, 
-        default: 'No location data'
+        default: 'In the Universe Somewhere'
     },
     posts: [{
         caption: String, 

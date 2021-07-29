@@ -87,7 +87,7 @@ const LoginForm: FC = () => {
             <Grid item>
             <Typography 
             variant='h6'
-            color='textSecondary'>Welcome back! Let's get Connected!</Typography>
+            color='textSecondary'>I bet you look good in purple! Let's get Connected!</Typography>
             </Grid>
 
             <Grid item>
