@@ -24,13 +24,13 @@ const UserProfile: FC = () => {
             setGif(response.data.data.images.fixed_height_small.url);
         })
     }, []); 
-    
+
     useEffect(() => { 
         console.log('useeffect: you are here'); 
         axios.get(`/api/profiles/:${location.search.replace('?','')}`)
         .then((response) => { 
             console.log(response);
-            setProfile(response.data); 
+            // setProfile(response.data); 
         })
         .catch((err) => { 
             console.log(err)
@@ -67,7 +67,7 @@ const UserProfile: FC = () => {
 
                 <Typography 
                 variant='h3' 
-                color='textSecondary'>kelseyhugs</Typography> 
+                color='textSecondary'>{location.search.replace('?','')}</Typography> 
 
                 <Typography variant='subtitle1'>Kels</Typography>
                 <Typography variant='caption'>In the Universe</Typography>

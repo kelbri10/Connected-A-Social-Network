@@ -60,11 +60,11 @@ const getUserProfile = async (req: Request, res: Response) => {
     console.log('getuser: user profile found')
     console.log('This is the params' + ' ' + req.params.user.replace(':', ''));
     
-    UserModel.findOne({username: req.params.user})
+    UserModel.findOne({username: req.params.user.replace(':', '')})
     .populate('profile')
     .exec((err, user) => {
         if (err) console.log(err);  
-        res.json()
+        res.json(user);
     })
     
 
