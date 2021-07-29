@@ -45,7 +45,7 @@ Requirements for this project include:
 - [ ] Uses a reusable UI  component that I created *In progress*
 
 ## 4. Views 
-![View of Login and Sign up page](imgs/Views.png)
+![View of Login and Sign up page](Views.png)
 
 ## 5. Folder Structure Explained
 
