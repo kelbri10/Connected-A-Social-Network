@@ -1,7 +1,8 @@
 import React,  { FC } from 'react'; 
-import {Button, makeStyles, TextField, Typography,  Grid} from '@material-ui/core'; 
+import {Button, makeStyles, TextField, Typography,  Grid, InputAdornment} from '@material-ui/core'; 
 import { useState} from 'react';
 import { Link, useHistory} from 'react-router-dom'; 
+import {AccountCircle, Lock, Email} from '@material-ui/icons';
 import axios from 'axios'; 
 
 
@@ -90,7 +91,14 @@ const LoginForm: FC = () => {
                         color='secondary'
                         id='username' 
                         name='username'
-                        label='Username' 
+                        label='Username'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <AccountCircle />
+                                </InputAdornment>
+                            )
+                        }} 
                         value={existingUser.username}
                         required
                         onChange={handleChange}/>
@@ -103,7 +111,14 @@ const LoginForm: FC = () => {
                         color='secondary'
                         id='password' 
                         name='password'
-                        label='Password' 
+                        label='Password'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Lock />
+                                </InputAdornment>
+                            )
+                        }}  
                         value={existingUser.password}
                         required
                         onChange={handleChange}/>

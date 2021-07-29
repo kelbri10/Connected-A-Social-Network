@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { makeStyles, Button, TextField, Typography, Grid} from "@material-ui/core";
+import { makeStyles, Button, TextField, Typography, Grid, InputAdornment} from "@material-ui/core";
 import { useState } from "react";
 import { Link } from 'react-router-dom'; 
+import {AccountCircle, Lock, Email} from '@material-ui/icons'
 import axios from "axios";
 
 
@@ -87,22 +88,15 @@ const SignUp : FC = () => {
                         id='username' 
                         name='username'
                         label='Username'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <AccountCircle />
+                                </InputAdornment>
+                            )
+                        }}
                         value={newUser.username}
                         required 
-                        onChange={handleChange}
-                        />
-                    </Grid>
-
-                    <Grid item>
-                        <TextField 
-                        className={classes.field}
-                        variant='outlined'
-                        color='secondary'
-                        id='password' 
-                        name='password'
-                        label='Password' 
-                        value={newUser.password}
-                        required
                         onChange={handleChange}
                         />
                     </Grid>
@@ -115,8 +109,36 @@ const SignUp : FC = () => {
                         id='email' 
                         name='email'
                         label='Email'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Email />
+                                </InputAdornment>
+                            )
+                        }} 
                         value={newUser.email}
                         required 
+                        onChange={handleChange}
+                        />
+                    </Grid>
+
+                    <Grid item>
+                        <TextField 
+                        className={classes.field}
+                        variant='outlined'
+                        color='secondary'
+                        id='password' 
+                        name='password'
+                        label='Password'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Lock />
+                                </InputAdornment>
+                            )
+                        }} 
+                        value={newUser.password}
+                        required
                         onChange={handleChange}
                         />
                     </Grid>
