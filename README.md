@@ -66,9 +66,13 @@ Additional files and folders of importannce:
         - The config file holds the code that authenticates the user through passport js local-strategy and checks that they have an account saved to the database. If they do not they are not allowed access to view profile. Once the user is authenticated with the correct user name and password they are then redirected to the profile page.
 
 ## 6. How to Install 
+While the build states that it is successfully hosted at ```https://stark-cliffs-76711.herokuapp.com/``` it renders an error login due to a H20 and H10 request. This leads me to believe that there is an issue with the proxy server being able to boot up alongside the client-side code.
+
+For now it is recommended that you ```git clone``` the SSH and run the app locally for the best experience.
+
 To run the code locally, install dependences and run: 
 ```npm install```
-This ensures that all necessary dependencies are stored locally on your computer. Due to issues with hosting my proxy server through Heroku, this application can only be run locally. This is done by setting the proxy server to ```localhost:8000```. In this way all requests are routed through the express server and deliver up the necessary redirects client side as well. Because this application uses typescript, before you are able to run the server.ts you must compile all files with the ```tsc``` command to ensure typescript is compiled to javascript. Once this is complete you may run ```npm start``` in both the client and server folder. Doing so, makes the router and the front end running so that the router can handle the necessary requests.
+This ensures that all necessary dependencies are stored locally on your computer. Due to issues with hosting my proxy server through Heroku, this application can only be run locally. This is done by setting the proxy server to ```localhost:8000```. In this way all requests are routed through the express server and deliver up the necessary redirects client side as well. Because this application uses typescript, before you are able to run the server.ts you must compile all files with the ```tsc``` command to ensure typescript is compiled to javascript. Once this is complete you may run ```npm start``` in both the client and server folder. Doing so, makes the router and the front end running so that the router can handle the necessary requests. 
 
 ## 5. Languages, Frameworks, and Libraries 
 Here is a list of resources used to make this project possible: 
