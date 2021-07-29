@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static('client/build'));
 
 app.use(cors({
-    origin: 'http://localhost:3000', //where react app is located 
+    origin: 'http://localhost:3000' || process.env.PORT, //where react app is located 
     credentials: true
 })); 
 
@@ -33,7 +33,7 @@ app.use(session({
 })); 
 
 //initializes the database 
-mongoose.connect(
+mongoose.connect(process.env.MONGODB_URI ||
     `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.lxflj.mongodb.net/Connected?retryWrites=true&w=majority`, {
         useNewUrlParser: true, 
         useUnifiedTopology: true
@@ -50,6 +50,10 @@ app.use(initialize());
 
 app.use('/api', apiRouter); 
 // app.use('/', htmlRouter); 
+
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build')); 
+}
 
 app.listen(PORT, () => { 
     console.log( `App is listening on PORT ${PORT}`); 
