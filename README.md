@@ -6,9 +6,11 @@ Connected is a social networking app that allows the user to view their profile,
 
 ## 1. Research 
 Before jumping into designing, I first brainstormed applications that were already widely used and accessed by different communities. Applications like Facebook, Instagram, Twitter, Snapchat, Linkedin, and others were known for being successful in creating fostering relationships despite distance, language barriers, etc. They all shared factors that made them easy to gravitate towards: 
+
 - Clean imagery
 - Clear copy
 - Ease of access 
+
 When brainstorming how to execute my own application, I wanted to keep these factors in mind. 
 
 ## 2. Design Process 
@@ -27,7 +29,7 @@ I created user profiles to align with design considerations I had for making a i
 Requirements for this project include: 
 - [x] Use a modern JS Library/Framework
     - In this project, I used ReactJS.
-    
+
 - [ ] Allows user to interact with application in a minimum of 3 different ways *In progress*
     - As a user, you can sign up for a new account, login into your account, and I am currently working on rendering the profile details so that you can edit your profile with your information to replace default placeholders.
 
