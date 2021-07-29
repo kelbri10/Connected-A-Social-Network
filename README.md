@@ -50,19 +50,29 @@ Requirements for this project include:
 ## 5. Folder Structure Explained
 - Client/View
 The client folder hosts the react-app. Boilerplate data is housed in the folder alongside the components/pages that are rendered client-side from the src folder.
+![Client folder tree](imgs/client.png)
 
 - Models
 The models folder contains the database schema that is used as the blueprint for finding and mapping information between collections hosted on MongoDB. A subfolder in models called interfaces holds the typing for what type of information is expected to go into parameters outlined in the profile and user schema. The profile schema holds default values that the user will be able to change upon intializing an update request to the server.
+![Model folder tree](imgs/Model.png)
 
 - Controllers 
 The controllers folder holds the userController.ts file which houses the api logic that is called in the api-routes.ts file in the routes folder. This file tells the server what to do when it receives a request. 
-
+![Controller folder tree](imgs/Controller.png)
 
 - Additional Files 
+Additional files and folders of importannce: 
+    - Routes 
+        - The Routes folder holds the html router that tells the server what page to host. The api router tells the server what request to call and with what criteria. If I had more time I would have additionally debugged the api Router alongside its companion controller file in order to stop the code from caling the get profile twice and allow it to render client side so that that user can update their profile.
+        ![Routes folder tree](imgs/Routes.png)
+
+    - Config
+        - The config file holds the code that authenticates the user through passport js local-strategy and checks that they have an account saved to the database. If they do not they are not allowed access to view profile. Once the user is authenticated with the correct user name and password they are then redirected to the profile page.
+        ![Config folder tree](imgs/Config.png)
+
 ## 6. How to Install + Live Demo
 To run the code locally install dev dependences and run: 
 ```npm run dev```
-
 
 
 ## 5. Languages, Frameworks, and Libraries 
