@@ -30,6 +30,7 @@ Requirements for this project include:
 - [ ] Allows user to interact with application in a minimum of 3 different ways *In progress*
     -As a user, you can sign up for a new account, login into your account, and I am currently working on rendering the profile details so that you can edit your profile with your information to replace default placeholders.
 - [x] Uses architectural pattern
+    -For this project, I applied the Model-View-Controller architectural pattern to organize my code. The model folder holds the interfaces and database schemas for users info and password. The views is the client folder with the src files for components being rendered, and the controller folder holds the api logic.
 - [ ] Integration with a 3rd party RESTful API *In progress*
     -Outside of integrating with a 3rd party API, I also wrote some of my own backend api routes to CREATE a new user with default profile settings, LOGIN user and once authenticated REDIRECT them to the profile page on the frontend.
 - [x] Uses at least 5 UI components from material-ui/@core 
