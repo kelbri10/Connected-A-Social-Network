@@ -12,7 +12,11 @@ const UserProfile: FC = () => {
 
 
     // console.log(`this is the location search: ${location.search}`); 
-    const [profile, setProfile] = useState(null); 
+    const [profile, setProfile] = useState({
+        displayName: '',
+        location: '',
+        bio: '' 
+    }); 
     const [gif, setGif] = useState(); 
     // console.log('this is the response data' + response.data)
     
@@ -29,8 +33,12 @@ const UserProfile: FC = () => {
         console.log('useeffect: you are here'); 
         axios.get(`/api/profiles/:${location.search.replace('?','')}`)
         .then((response) => { 
-            console.log(response);
-            // setProfile(response.data); 
+            console.log(response); 
+            setProfile({
+                displayName: response.data.profile[0].displayName,
+                location: response.data.profile[0].location,
+                bio: response.data.profile[0].bio, 
+            }); 
         })
         .catch((err) => { 
             console.log(err)
@@ -69,9 +77,9 @@ const UserProfile: FC = () => {
                 variant='h3' 
                 color='textSecondary'>{location.search.replace('?','')}</Typography> 
 
-                <Typography variant='subtitle1'>Kels</Typography>
-                <Typography variant='caption'>In the Universe</Typography>
-                <Typography variant='subtitle1'>I can connect react to express. Ask me anything. :)</Typography>
+                <Typography variant='subtitle1'>{profile.displayName}</Typography>
+                <Typography variant='caption'>{profile.location}</Typography>
+                <Typography variant='subtitle1'>{profile.bio}</Typography>
 
 
                 <img src={gif} alt='random gif from giphy'/>
