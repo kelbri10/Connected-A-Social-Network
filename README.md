@@ -42,10 +42,28 @@ Requirements for this project include:
 - [x] Uses at least 5 UI components from material-ui/@core 
     - I utilized multiple UI components from the material-ui npm package. For styling I applied basic Typography for the font and Grid for layout. I also pulled the email, password, and account icon. I also incorporated the Button component throughout the front end.
 
-- [ ] Uses a reusable UI component that I created *In progress*
+- [ ] Uses a reusable UI  component that I created *In progress*
 
 ## 4. Views 
 ![View of Login and Sign up page](imgs/Views.png)
+
+## 5. Folder Structure Explained
+- Client/View
+The client folder hosts the react-app. Boilerplate data is housed in the folder alongside the components/pages that are rendered client-side from the src folder.
+
+- Models
+The models folder contains the database schema that is used as the blueprint for finding and mapping information between collections hosted on MongoDB. A subfolder in models called interfaces holds the typing for what type of information is expected to go into parameters outlined in the profile and user schema. The profile schema holds default values that the user will be able to change upon intializing an update request to the server.
+
+- Controllers 
+The controllers folder holds the userController.ts file which houses the api logic that is called in the api-routes.ts file in the routes folder. This file tells the server what to do when it receives a request. 
+
+
+- Additional Files 
+## 6. How to Install + Live Demo
+To run the code locally install dev dependences and run: 
+```npm run dev```
+
+
 
 ## 5. Languages, Frameworks, and Libraries 
 - [Typescript](https://www.typescriptlang.org/)

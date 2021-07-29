@@ -6,15 +6,14 @@ import {AccountCircle, Lock, Email} from '@material-ui/icons'
 import axios from "axios";
 
 
-
-
 const SignUp : FC = () => { 
+
+    //useState hook to track changes to user information
     const [newUser, setNewUser] = useState({
         username: '', 
         password: '', 
         email: '',
     });
-
 
     // //changes the value of userobj when user types in input box
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
@@ -27,7 +26,8 @@ const SignUp : FC = () => {
         })
     }
 
-    
+    //on submit information is sent to db to be added as a new user 
+    //default profile info is added as set by the db model
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
         event.preventDefault(); 
         console.log(newUser); 
@@ -44,7 +44,7 @@ const SignUp : FC = () => {
         })
     }
 
-    
+    //renders additional margin formatting to form fields 
     const useStyles = makeStyles({
         field: { 
             marginTop: 10, 
@@ -55,7 +55,7 @@ const SignUp : FC = () => {
 
 
     const classes = useStyles(); 
-
+    
     return ( 
         <Grid container
         spacing={0}

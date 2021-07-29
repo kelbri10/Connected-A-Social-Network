@@ -14,6 +14,7 @@ const LoginForm: FC = () => {
 
     const history = useHistory(); 
 
+    //tracks changes made to form
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
         const {name, value} = event.target; 
 
@@ -25,6 +26,8 @@ const LoginForm: FC = () => {
 
     }
 
+    //on submit information is sent to db to be authenticated 
+    //once authenticated, user is redirected to the profile view
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => { 
         //prevents user from resubmitting once button clicked
         event.preventDefault(); 
@@ -40,8 +43,8 @@ const LoginForm: FC = () => {
         }).then((response) => { 
             console.log(response); 
             if(response.data.username){
-                console.log('isAuth:  you can be here');
-                console.log(response.data.username)
+                // console.log('isAuth:  you can be here');
+                // console.log(response.data.username)
                 history.push({
                     pathname:'/profile',
                     search: `${response.data.username}`, 
@@ -56,6 +59,7 @@ const LoginForm: FC = () => {
         });
     }
 
+    //renders additional jmarging formatting to form fields
     const useStyles = makeStyles({
         field: { 
             marginTop: 10, 
