@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { Button } from '@material-ui/core'; 
+import { makeStyles, Button, Grid, Card, Typography, Avatar, InputAdornment, createStyles } from '@material-ui/core'; 
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; 
 import axios from 'axios'; 
+
 
 
 const UserProfile: FC = () => {
@@ -26,27 +27,51 @@ const UserProfile: FC = () => {
         })
     }, [location.search]);
 
+    const useStyles = makeStyles({
+        card: {
+            padding: 20
+        }, 
+        field: { 
+            marginTop: 10, 
+            marginBottom: 10
+        }
+    })
+
+    const classes = useStyles(); 
+
     return (
-        <div style={{ width: '100%'}}>
-            <h1>You see this when you successfully login</h1>
+        <Grid container
+        spacing={0}
+        alignItems='center'
+        style={{minHeight: '50vh'}}
+        justifyContent='center'
+        direction='column'>
 
-{/*             
-            <h1>{props.displayName}</h1>
-            <h2>{props.username}</h2>
-            <h2>{props.location}</h2> */}
-            {/* <h1>{profile.displayName} profile</h1>
+            <Grid item>
+            <Card className={classes.card} variant='outlined'>
+                <Grid item>
+                <Avatar style={{ height: '100px', width:'100px', justifyContent: 'center', display: 'inline-flex'}}>U</Avatar>
+                </Grid>
 
-            <div className='profile-information'>
-                <p>{profile.displayName}</p>
-                <p>@{profile.username}</p>
-                <p>{profile.location}</p>
-            </div>  */}
+                <Typography 
+                variant='h3' 
+                color='textSecondary'>Username</Typography> 
 
-            {/* insert table here to display connections, albums, home page*/}
-            
-            <Button>Update Profile</Button>
-            <Button>Home</Button>
-        </div>
+                <Typography variant='subtitle1'>Display Name</Typography>
+                <Typography variant='caption'>Location</Typography>
+                <Typography variant='subtitle1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
+
+
+                <Grid item>
+                <Button
+                className={classes.field}
+                color='secondary'
+                size='large'
+                variant='outlined'>Update Profile</Button>
+                </Grid>
+            </Card>
+            </Grid>
+        </Grid>
     );
 }
 
